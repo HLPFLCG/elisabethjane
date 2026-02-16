@@ -7,10 +7,11 @@ export const SITE_URL = "https://elisabethjane.com";
 export const CONTACT_EMAIL = "hello@elisabethjane.com";
 
 export const NAV_LINKS: readonly NavLink[] = [
+  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Shop", href: "/#shop" },
   { label: "Blog", href: "/blog" },
-  { label: "Guide", href: "/guide" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 // Replace these with your actual Stripe Payment Links
