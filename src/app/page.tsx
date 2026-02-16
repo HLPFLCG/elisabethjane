@@ -3,8 +3,7 @@ import SectionHeader from "@/components/SectionHeader";
 import ProductCard from "@/components/ProductCard";
 import FadeIn from "@/components/FadeIn";
 import Button from "@/components/Button";
-import { PRODUCTS, EXTRAS, BLOG_POSTS, CONTACT_EMAIL } from "@/lib/constants";
-import { formatDate } from "@/lib/utils";
+import { PRODUCTS, CONTACT_EMAIL, INSTAGRAM_URL } from "@/lib/constants";
 
 export default function HomePage() {
   return (
@@ -84,28 +83,12 @@ export default function HomePage() {
             is what makes each box uniquely yours.
           </FadeIn>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto grid max-w-[900px] gap-8 sm:grid-cols-2">
             {PRODUCTS.map((product, i) => (
               <FadeIn key={product.id} delay={i * 100}>
                 <ProductCard {...product} />
               </FadeIn>
             ))}
-          </div>
-
-          {/* You Might Also Like */}
-          <div className="mt-20 border-t border-border pt-16">
-            <FadeIn>
-              <h3 className="mb-10 text-center font-heading text-3xl font-normal text-green-dark">
-                You Might Also Like
-              </h3>
-            </FadeIn>
-            <div className="mx-auto grid max-w-[700px] gap-8 sm:grid-cols-2">
-              {EXTRAS.map((extra, i) => (
-                <FadeIn key={extra.id} delay={i * 100}>
-                  <ProductCard {...extra} compact />
-                </FadeIn>
-              ))}
-            </div>
           </div>
         </div>
       </section>
@@ -140,51 +123,17 @@ export default function HomePage() {
       {/* Quote */}
       <section className="bg-green-dark px-6 py-20 lg:py-24">
         <FadeIn className="mx-auto max-w-[800px]">
-          <blockquote className="text-center font-heading text-xl font-light italic leading-relaxed text-cream md:text-2xl lg:text-3xl">
-            &ldquo;A recipe box is the kind of thing you don&rsquo;t think about
-            until someone hands you your grandmother&rsquo;s. Then you get
-            it.&rdquo;
+          <blockquote className="text-center font-heading text-lg font-light italic leading-relaxed text-cream md:text-xl lg:text-2xl">
+            &ldquo;In a world of screens and bookmarked links, a recipe box is
+            easily overlooked&mdash;until it&rsquo;s your grandmother&rsquo;s.
+            Then, it&rsquo;s no longer just a box; it&rsquo;s a legacy.
+            It&rsquo;s the scent of fresh morning coffee and the secret to her
+            homemade cinnamon rolls, captured on paper. This is more than a
+            kitchen staple; it&rsquo;s an heirloom meant to be filled with your
+            own &lsquo;slow&rsquo; moments and passed down to the next
+            generation.&rdquo;
           </blockquote>
         </FadeIn>
-      </section>
-
-      {/* Latest from the blog */}
-      <section className="bg-cream px-6 py-24 lg:py-28">
-        <div className="mx-auto max-w-[1100px]">
-          <SectionHeader
-            label="Journal"
-            title="From the Blog"
-          />
-          <div className="grid gap-8 md:grid-cols-3">
-            {BLOG_POSTS.slice(0, 3).map((post, i) => (
-              <FadeIn key={post.slug} delay={i * 100}>
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="group block h-full border border-border bg-warm-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(59,74,58,0.08)]"
-                >
-                  <div className="flex h-36 items-center justify-center bg-gradient-to-br from-ivory to-[#E8E2D6]">
-                    <span className="font-heading text-base italic text-green-muted/60">
-                      {post.category}
-                    </span>
-                  </div>
-                  <div className="p-5">
-                    <p className="mb-2 text-[0.65rem] font-medium uppercase tracking-[0.15em] text-green-muted">
-                      {formatDate(post.date)}
-                    </p>
-                    <h3 className="font-heading text-lg font-medium text-green-dark transition-colors duration-300 group-hover:text-green">
-                      {post.title}
-                    </h3>
-                  </div>
-                </Link>
-              </FadeIn>
-            ))}
-          </div>
-          <FadeIn className="mt-10 text-center">
-            <Button href="/blog" variant="secondary">
-              View All Posts
-            </Button>
-          </FadeIn>
-        </div>
       </section>
 
       {/* Contact */}
@@ -193,16 +142,20 @@ export default function HomePage() {
           <SectionHeader label="Get in Touch" title="Contact" />
           <FadeIn>
             <p className="mb-7 text-base leading-loose text-text-light">
-              Questions about custom orders or anything else? Drop us a line.
+              Questions about custom orders or collaborations or just want to
+              say hello? Connect with me here!
             </p>
-            <Button href={`mailto:${CONTACT_EMAIL}`}>Email Us</Button>
+            <Button href={`mailto:${CONTACT_EMAIL}`}>Email Me</Button>
+            <p className="mt-4 text-sm text-text-light">{CONTACT_EMAIL}</p>
             <div className="mt-7">
               <a
-                href="#"
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-xs uppercase tracking-[0.12em] text-green-muted hover:text-green-dark"
                 aria-label="Instagram"
               >
-                Instagram
+                @elisabeth.jane.c
               </a>
             </div>
           </FadeIn>

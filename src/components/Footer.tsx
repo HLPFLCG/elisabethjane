@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { NAV_LINKS, SITE_NAME, CONTACT_EMAIL } from "@/lib/constants";
+import { NAV_LINKS, SITE_NAME, CONTACT_EMAIL, INSTAGRAM_URL } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -45,11 +45,13 @@ export default function Footer() {
             </a>
             <div className="mt-4 flex gap-5">
               <a
-                href="#"
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-xs uppercase tracking-[0.12em] text-cream/60 hover:text-cream"
                 aria-label="Instagram"
               >
-                Instagram
+                @elisabeth.jane.c
               </a>
             </div>
           </div>

@@ -11,6 +11,8 @@ export default function ProductCard({
   price,
   stripeLink,
   tag,
+  dimensions,
+  details,
   compact = false,
 }: ProductCardProps) {
   if (compact) {
@@ -56,6 +58,30 @@ export default function ProductCard({
           <p className="mt-2.5 text-sm leading-relaxed text-text-light">
             {description}
           </p>
+        )}
+        {dimensions && (
+          <div className="mt-3">
+            <p className="text-[0.65rem] font-medium uppercase tracking-[0.1em] text-green-muted">
+              Dimensions
+            </p>
+            <p className="mt-1 text-xs leading-relaxed text-text-light">
+              {dimensions}
+            </p>
+          </div>
+        )}
+        {details && details.length > 0 && (
+          <div className="mt-3">
+            <p className="text-[0.65rem] font-medium uppercase tracking-[0.1em] text-green-muted">
+              Details
+            </p>
+            <ul className="mt-1 space-y-0.5">
+              {details.map((detail) => (
+                <li key={detail} className="text-xs leading-relaxed text-text-light">
+                  &bull; {detail}
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
         <div className={cn("mt-4 flex items-center justify-between", !description && "mt-3")}>
           <p className="font-heading text-xl font-medium text-green-dark">
