@@ -2,7 +2,7 @@ import type { Product, BlogPost, NavLink } from "./types";
 
 export const SITE_NAME = "Elisabeth Jane";
 export const SITE_DESCRIPTION =
-  "Hand-painted recipe boxes â€” whimsical, nostalgic, and made to become a timeless heirloom in your home.";
+  "Hand-painted recipe boxes made to be used, loved, and passed down.";
 export const SITE_URL = "https://elisabethjane.com";
 export const CONTACT_EMAIL = "hello@elisabethjane.com";
 
@@ -20,28 +20,28 @@ export const PRODUCTS: readonly Product[] = [
     id: "classic-floral",
     name: "Classic Floral Recipe Box",
     description:
-      "A timeless floral design featuring hand-painted wildflowers in soft, muted tones. Perfect for storing your most treasured family recipes.",
+      "Wildflowers in soft, muted tones. Our most popular design.",
     price: "$85.00",
     stripeLink: "https://buy.stripe.com/YOUR_LINK_HERE",
-    tag: "Hand-Painted Floral",
+    tag: "Floral",
   },
   {
     id: "garden-botanicals",
     name: "Garden Botanicals Recipe Box",
     description:
-      "Inspired by cottage garden botanicals, this box features delicate hand-painted herbs and greenery with a nostalgic, homestead feel.",
+      "Herbs and greenery inspired by the kitchen garden.",
     price: "$85.00",
     stripeLink: "https://buy.stripe.com/YOUR_LINK_HERE",
-    tag: "Garden Botanicals",
+    tag: "Botanicals",
   },
   {
     id: "heirloom-rose",
     name: "Heirloom Rose Recipe Box",
     description:
-      "Featuring hand-painted heritage roses in warm, earthy tones. A beautiful keepsake designed to be passed down through generations.",
+      "Heritage roses in warm, earthy tones.",
     price: "$90.00",
     stripeLink: "https://buy.stripe.com/YOUR_LINK_HERE",
-    tag: "Heirloom Rose",
+    tag: "Rose",
   },
 ];
 
@@ -67,7 +67,7 @@ export const BLOG_POSTS: readonly BlogPost[] = [
     slug: "the-art-of-hand-painting",
     title: "The Art of Hand-Painting: Why Every Box Is Unique",
     excerpt:
-      "Each Elisabeth Jane recipe box is painted by hand, one brushstroke at a time. Discover why embracing imperfection is what makes hand-painted art so special.",
+      "Every box is painted by hand &mdash; no stamps, no stencils. Here's what that actually looks like and why the small differences matter.",
     date: "2026-02-10",
     category: "Behind the Scenes",
     content: `
@@ -98,7 +98,7 @@ We believe your kitchen deserves beautiful things. Not just functional things â€
     slug: "building-a-family-recipe-collection",
     title: "Building a Family Recipe Collection: Where to Start",
     excerpt:
-      "Starting a family recipe collection can feel overwhelming. Here's a simple, heartfelt approach to gathering and preserving the recipes that matter most.",
+      "Starting a recipe collection doesn't have to be complicated. A few tips on gathering the recipes that matter before they're lost.",
     date: "2026-02-03",
     category: "Recipes & Traditions",
     content: `
@@ -133,7 +133,7 @@ Write your recipes on cards, tuck them into your box, and know that you've creat
     slug: "cottagecore-kitchen-essentials",
     title: "Cottagecore Kitchen Essentials: Creating a Space You Love",
     excerpt:
-      "Transform your kitchen into a warm, whimsical cottagecore haven with these simple, intentional touches that bring beauty to everyday cooking.",
+      "Simple ways to make your kitchen a place you actually want to spend time in.",
     date: "2026-01-20",
     category: "Lifestyle",
     content: `

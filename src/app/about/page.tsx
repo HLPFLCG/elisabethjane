@@ -6,33 +6,25 @@ import Button from "@/components/Button";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about Elisabeth Jane — the story, the artist, and the love behind every hand-painted recipe box.",
+    "The story behind Elisabeth Jane hand-painted recipe boxes.",
 };
 
 const VALUES: readonly [string, string][] = [
   [
-    "Slow & Intentional",
-    "We believe in the beauty of slowing down. Every box is painted with patience and care — never rushed, never mass-produced.",
-  ],
-  [
-    "Handmade Always",
-    "From sketch to seal, every step is done by hand. This is what gives each box its soul, its character, its one-of-a-kind beauty.",
-  ],
-  [
-    "Rooted in Nostalgia",
-    "We draw inspiration from the past — vintage botanicals, grandmother's kitchens, the timeless ritual of cooking for the people you love.",
+    "Handmade, Always",
+    "Every step is done by hand — sketch, paint, seal. No shortcuts.",
   ],
   [
     "Built to Last",
-    "These aren't decorative trinkets. They're heirloom-quality keepsakes designed to be used, loved, and passed down through generations.",
+    "These are meant to be used in a real kitchen, not just displayed. Sealed and finished to hold up.",
   ],
   [
     "Nature-Inspired",
-    "Wildflowers, herbs, garden roses — the natural world is our palette. Every design is a love letter to the beauty growing right outside your door.",
+    "Wildflowers, herbs, garden roses. The designs come from what's growing outside.",
   ],
   [
-    "Made with Love",
-    "At the heart of everything we do is love — for the craft, for the tradition of family cooking, and for the people who trust us with their stories.",
+    "One at a Time",
+    "No batch production. Each box gets individual attention from start to finish.",
   ],
 ];
 
@@ -49,8 +41,7 @@ export default function AboutPage() {
             About Elisabeth Jane
           </h1>
           <p className="mx-auto max-w-[520px] text-lg leading-loose text-text-light">
-            Born from a love of nostalgia, homestead living, and the art of
-            slowing down.
+            It started with one recipe box, made as a gift.
           </p>
         </div>
       </header>
@@ -60,26 +51,19 @@ export default function AboutPage() {
         <div className="mx-auto max-w-[720px]">
           <FadeIn className="space-y-6 text-base leading-loose text-text-light">
             <p>
-              Elisabeth Jane started as a kitchen-table dream &mdash; a single
-              hand-painted recipe box, made as a gift, that sparked something
-              much bigger. What began as one box for a friend quickly became a
-              passion for creating beautiful, meaningful keepsakes that honor the
-              art of cooking and the love woven into family recipes.
+              I painted a recipe box for a friend and she asked if I could make
+              one for her sister. Then her mum wanted one. It grew from there.
             </p>
             <p>
-              Every Elisabeth Jane recipe box is hand-painted from start to
-              finish. There are no shortcuts, no assembly lines, no two boxes
-              that look exactly the same. Each one is a small work of art,
-              created with the same care and intention you pour into your
-              favorite family recipes.
+              Every box is still hand-painted from start to finish &mdash; no
+              stencils, no assembly line. The designs are inspired by the things
+              I see in my garden and in old botanical prints. No two are exactly
+              the same.
             </p>
             <p>
-              The aesthetic is rooted in whimsy, cottagecore, and the beauty of
-              the natural world. Think wildflower meadows, cottage gardens, and
-              sun-drenched herb patches. Think the feeling of flipping through
-              your grandmother&rsquo;s handwritten recipe cards on a Sunday
-              afternoon. That warmth, that nostalgia &mdash; that&rsquo;s what
-              Elisabeth Jane is all about.
+              I like the idea that something I painted might end up in
+              someone&rsquo;s kitchen for years, holding the recipes they
+              actually cook from. That&rsquo;s the goal.
             </p>
           </FadeIn>
         </div>
@@ -112,22 +96,14 @@ export default function AboutPage() {
           <SectionHeader label="The Artist" title="Behind the Brush" />
           <FadeIn className="space-y-6 text-base leading-loose text-text-light">
             <p>
-              Elisabeth Jane is the creative vision of an artist who believes
-              that everyday objects should be beautiful. Inspired by cottage
-              gardens, vintage flora, and the warmth of a well-loved kitchen,
-              she set out to create something that lives at the intersection of
-              art and home.
+              I&rsquo;ve always been drawn to making everyday things look nicer
+              than they need to. A recipe box felt like a natural fit &mdash;
+              something practical that could also be beautiful.
             </p>
             <p>
-              Her work is influenced by the hand-painted flora and elegant
-              typography of brands she admires &mdash; the delicate artistry
-              that turns a simple object into something you want to display,
-              touch, and treasure.
-            </p>
-            <p>
-              When she&rsquo;s not painting, you can find her tending her
-              garden, testing new recipes, and dreaming up new designs for the
-              next collection.
+              Most of my inspiration comes from my garden and from old botanical
+              illustrations. I like the looseness of hand-painted work &mdash;
+              the slight imperfections are what make each piece feel real.
             </p>
           </FadeIn>
         </div>
@@ -140,8 +116,7 @@ export default function AboutPage() {
             Ready to Start Your Collection?
           </h2>
           <p className="mb-8 text-base leading-relaxed text-cream/70">
-            Browse our hand-painted recipe boxes and find the perfect home for
-            your family&rsquo;s most treasured recipes.
+            Browse the current collection and find one you love.
           </p>
           <Button href="/#shop" variant="inverse">
             Shop Now
