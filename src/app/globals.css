@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #FAF7F2;
+  --color-ivory: #F5F0E8;
+  --color-warm-white: #FFFDF9;
+  --color-green-dark: #3B4A3A;
+  --color-green: #4E6150;
+  --color-green-light: #6B7F6B;
+  --color-green-muted: #8A9B87;
+  --color-text: #3B3B3B;
+  --color-text-light: #6B6B6B;
+  --color-border: #E5DFD5;
+  --color-accent: #C8A96E;
+
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Quicksand", "Helvetica Neue", sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Heading defaults */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--color-green-dark);
+  line-height: 1.2;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-green-muted);
+  color: var(--color-cream);
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-green);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for interactive elements */
+a, button {
+  transition: all 0.3s ease;
+}
