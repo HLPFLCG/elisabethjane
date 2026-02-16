@@ -197,7 +197,7 @@ export default function HomePage() {
       </section>
 
       {/* Contact */}
-      <section className="bg-ivory px-6 py-24 lg:py-28">
+      <section id="contact" className="scroll-mt-20 bg-ivory px-6 py-24 lg:py-28">
         <div className="mx-auto max-w-[500px] text-center">
           <SectionHeader label="Get in Touch" title="Contact" />
           <FadeIn>
