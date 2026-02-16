@@ -1,17 +1,20 @@
+import type { Product, BlogPost, NavLink } from "./types";
+
 export const SITE_NAME = "Elisabeth Jane";
 export const SITE_DESCRIPTION =
   "Hand-painted recipe boxes — whimsical, nostalgic, and made to become a timeless heirloom in your home.";
 export const SITE_URL = "https://elisabethjane.com";
+export const CONTACT_EMAIL = "hello@elisabethjane.com";
 
-export const NAV_LINKS = [
+export const NAV_LINKS: readonly NavLink[] = [
   { label: "About", href: "/about" },
   { label: "Shop", href: "/#shop" },
   { label: "Blog", href: "/blog" },
   { label: "Guide", href: "/guide" },
-] as const;
+];
 
 // Replace these with your actual Stripe Payment Links
-export const PRODUCTS = [
+export const PRODUCTS: readonly Product[] = [
   {
     id: "classic-floral",
     name: "Classic Floral Recipe Box",
@@ -39,9 +42,9 @@ export const PRODUCTS = [
     stripeLink: "https://buy.stripe.com/YOUR_LINK_HERE",
     tag: "Heirloom Rose",
   },
-] as const;
+];
 
-export const EXTRAS = [
+export const EXTRAS: readonly Product[] = [
   {
     id: "recipe-cards",
     name: "Hand-Painted Recipe Card Set",
@@ -56,9 +59,9 @@ export const EXTRAS = [
     stripeLink: "https://buy.stripe.com/YOUR_LINK_HERE",
     tag: "Gift Set",
   },
-] as const;
+];
 
-export const BLOG_POSTS = [
+export const BLOG_POSTS: readonly BlogPost[] = [
   {
     slug: "the-art-of-hand-painting",
     title: "The Art of Hand-Painting: Why Every Box Is Unique",
@@ -160,4 +163,4 @@ The heart of cottagecore is the handmade. A hand-painted recipe box, a hand-thro
 The most important cottagecore kitchen essential isn't something you buy — it's a mindset. Take your time. Enjoy the process of cooking. Put on music. Pour yourself a cup of tea while dinner simmers. Your kitchen is meant to be lived in, not rushed through.
     `,
   },
-] as const;
+];

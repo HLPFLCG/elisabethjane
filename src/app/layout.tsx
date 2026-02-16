@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 import { SITE_NAME, SITE_DESCRIPTION } from "@/lib/constants";
 import "./globals.css";
 
@@ -19,12 +20,14 @@ export const metadata: Metadata = {
     "floral",
     "kitchen decor",
     "gift",
+    "Elisabeth Jane",
   ],
   openGraph: {
     title: `${SITE_NAME} | Hand-Painted Recipe Boxes`,
     description: SITE_DESCRIPTION,
     type: "website",
     locale: "en_US",
+    siteName: SITE_NAME,
   },
   twitter: {
     card: "summary_large_image",
@@ -54,9 +57,13 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body font-light leading-relaxed">
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
         <Header />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
+        <ScrollToTop />
       </body>
     </html>
   );
