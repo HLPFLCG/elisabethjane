@@ -40,30 +40,77 @@ export default function AboutPage() {
           <h1 className="mb-6 font-heading text-5xl font-light text-green-dark md:text-6xl">
             About Elisabeth Jane
           </h1>
-          <p className="mx-auto max-w-[520px] text-lg leading-loose text-text-light">
-            It started with one recipe box, made as a gift.
+          <p className="mx-auto max-w-[560px] text-lg leading-loose text-text-light">
+            Honoring the Creator by painting the beauty He tucked into the
+            garden.
           </p>
         </div>
       </header>
 
-      {/* Story */}
+      {/* About Me */}
       <section className="bg-cream px-6 py-24 lg:py-28">
         <div className="mx-auto max-w-[720px]">
+          <SectionHeader label="The Artist" title="Hi, I'm Emma!" />
           <FadeIn className="space-y-6 text-base leading-loose text-text-light">
             <p>
-              I painted a recipe box for a friend and she asked if I could make
-              one for her sister. Then her mum wanted one. It grew from there.
+              I am the artist and designer behind this work, and I&rsquo;m truly
+              so grateful you&rsquo;re here.
             </p>
             <p>
-              Every box is still hand-painted from start to finish &mdash; no
-              stencils, no assembly line. The designs are inspired by the things
-              I see in my garden and in old botanical prints. No two are exactly
+              I&rsquo;ve always been fueled by a desire to create. After
+              teaching for seven years, I stepped down to be a stay-at-home mom
+              and raise my daughter. While praying and asking God how He could
+              use me, He led me here. He has placed me exactly where I am
+              supposed to be in this season: creating to glorify Him. One of the
+              greatest gifts of my life has been seeing how God takes our small
+              seeds of creativity and grows them into something more.
+            </p>
+            <p>
+              My journey with these recipe boxes began at a crossroads. As one
+              chapter of my life was closing, another was opening. I found
+              myself in a season of uncertainty, seeking work that honored Him
+              and served others. It was in that quiet space of seeking His
+              direction that the idea for these boxes was planted.
+            </p>
+            <p>
+              Today, every box is still hand-painted from start to
+              finish&mdash;no stencils, no assembly lines. I am endlessly
+              inspired by the &ldquo;slow&rdquo; eras of the past, often
+              finding designs tucked away in old botanical prints. I love the
+              challenge of capturing the perfect, tiny details of a strawberry
+              vine; because they are painted by hand, no two are ever exactly
               the same.
             </p>
             <p>
-              I like the idea that something I painted might end up in
-              someone&rsquo;s kitchen for years, holding the recipes they
-              actually cook from. That&rsquo;s the goal.
+              I&rsquo;m drawn to the idea of &ldquo;functional
+              art&rdquo;&mdash;the belief that the items we use every day
+              should be as beautiful as they are useful. I&rsquo;ve found that
+              bringing pieces of nature into the home through art fills a space
+              with grace, joy, and light. I believe deeply in the purpose and
+              value of home&mdash;in creating spaces filled with warmth,
+              serenity, and nostalgia. My goal is for something I&rsquo;ve
+              painted to sit in your kitchen for decades, holding the recipes
+              you actually cook from and the legacy you&rsquo;ll one day pass
+              down.
+            </p>
+            <p>
+              Aside from painting, I grew up near a lake town in Michigan and
+              now live in Grand Rapids with my little family. We hope to grow
+              our family in the coming years and eventually move back toward the
+              lakeshore. When I&rsquo;m not at my painting desk, you can
+              usually find me in my kitchen cooking for my family, lost in the
+              rhythmic clicking of my knitting needles, or simply soaking up
+              time with the ones I love most.
+            </p>
+            <p>
+              I hope that through this, you feel seen and connected. I count you
+              all as friends&mdash;feel free to reach out with questions or just
+              a hello, anytime!
+            </p>
+            <p className="font-heading text-lg italic text-green-dark">
+              Yours ever,
+              <br />
+              Emma Laureen
             </p>
           </FadeIn>
         </div>
@@ -87,25 +134,6 @@ export default function AboutPage() {
               </FadeIn>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* The Artist */}
-      <section className="bg-cream px-6 py-24 lg:py-28">
-        <div className="mx-auto max-w-[720px]">
-          <SectionHeader label="The Artist" title="Behind the Brush" />
-          <FadeIn className="space-y-6 text-base leading-loose text-text-light">
-            <p>
-              I&rsquo;ve always been drawn to making everyday things look nicer
-              than they need to. A recipe box felt like a natural fit &mdash;
-              something practical that could also be beautiful.
-            </p>
-            <p>
-              Most of my inspiration comes from my garden and from old botanical
-              illustrations. I like the looseness of hand-painted work &mdash;
-              the slight imperfections are what make each piece feel real.
-            </p>
-          </FadeIn>
         </div>
       </section>
 

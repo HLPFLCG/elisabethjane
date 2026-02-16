@@ -5,6 +5,8 @@ export interface Product {
   price: string;
   stripeLink: string;
   tag: string;
+  dimensions?: string;
+  details?: string[];
 }
 
 export interface BlogPost {
