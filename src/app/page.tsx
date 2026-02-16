@@ -1,10 +1,8 @@
-import Link from "next/link";
 import SectionHeader from "@/components/SectionHeader";
 import ProductCard from "@/components/ProductCard";
 import FadeIn from "@/components/FadeIn";
 import Button from "@/components/Button";
-import { PRODUCTS, EXTRAS, BLOG_POSTS, CONTACT_EMAIL } from "@/lib/constants";
-import { formatDate } from "@/lib/utils";
+import { PRODUCTS, EXTRAS, CONTACT_EMAIL } from "@/lib/constants";
 
 export default function HomePage() {
   return (
@@ -39,15 +37,15 @@ export default function HomePage() {
               </p>
               <p>
                 The designs pull from nature &mdash; wildflowers, garden herbs,
-                vintage botanicals &mdash; and no two are exactly alike. That's
-                the whole point.
+                vintage botanicals &mdash; and no two are exactly alike.
+                That&rsquo;s the whole point.
               </p>
-              <Link
+              <a
                 href="/about"
                 className="mt-2 inline-block text-xs font-medium uppercase tracking-[0.12em] text-green-dark underline underline-offset-4 hover:text-green"
               >
                 Read more about us &rarr;
-              </Link>
+              </a>
             </FadeIn>
             <div className="flex flex-col gap-8">
               {(
@@ -84,7 +82,7 @@ export default function HomePage() {
             is what makes each box uniquely yours.
           </FadeIn>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto grid max-w-[800px] gap-8 sm:grid-cols-2">
             {PRODUCTS.map((product, i) => (
               <FadeIn key={product.id} delay={i * 100}>
                 <ProductCard {...product} />
@@ -93,20 +91,22 @@ export default function HomePage() {
           </div>
 
           {/* You Might Also Like */}
-          <div className="mt-20 border-t border-border pt-16">
-            <FadeIn>
-              <h3 className="mb-10 text-center font-heading text-3xl font-normal text-green-dark">
-                You Might Also Like
-              </h3>
-            </FadeIn>
-            <div className="mx-auto grid max-w-[700px] gap-8 sm:grid-cols-2">
-              {EXTRAS.map((extra, i) => (
-                <FadeIn key={extra.id} delay={i * 100}>
-                  <ProductCard {...extra} compact />
-                </FadeIn>
-              ))}
+          {EXTRAS.length > 0 && (
+            <div className="mt-20 border-t border-border pt-16">
+              <FadeIn>
+                <h3 className="mb-10 text-center font-heading text-3xl font-normal text-green-dark">
+                  You Might Also Like
+                </h3>
+              </FadeIn>
+              <div className="mx-auto grid max-w-[400px] gap-8">
+                {EXTRAS.map((extra, i) => (
+                  <FadeIn key={extra.id} delay={i * 100}>
+                    <ProductCard {...extra} compact />
+                  </FadeIn>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
 
@@ -117,8 +117,8 @@ export default function HomePage() {
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {(
               [
-                ["01", "Sketch", "Each design starts as a loose pencil sketch &mdash; mapping out where the florals and greenery will go."],
-                ["02", "Paint", "Base colours are layered in first, then the details: fine lines, small buds, and the shadows that bring everything together."],
+                ["01", "Sketch", "Each design starts as a loose pencil sketch, mapping out where the florals and greenery will go."],
+                ["02", "Paint", "Base colors are layered in first, then the details: fine lines, small buds, and the shadows that bring everything together."],
                 ["03", "Seal", "A protective finish goes on last so the box can handle real kitchen life, not just sit on a shelf."],
                 ["04", "Ship", "Carefully wrapped and sent out to you."],
               ] as const
@@ -141,50 +141,13 @@ export default function HomePage() {
       <section className="bg-green-dark px-6 py-20 lg:py-24">
         <FadeIn className="mx-auto max-w-[800px]">
           <blockquote className="text-center font-heading text-xl font-light italic leading-relaxed text-cream md:text-2xl lg:text-3xl">
-            &ldquo;A recipe box is the kind of thing you don&rsquo;t think about
-            until someone hands you your grandmother&rsquo;s. Then you get
-            it.&rdquo;
+            &ldquo;In a world of screens and bookmarked links, a recipe box is
+            easily overlooked &mdash; until it&rsquo;s your grandmother&rsquo;s.
+            Then, it&rsquo;s no longer just a box; it&rsquo;s a legacy of meals
+            shared, traditions honored, and love passed down through
+            generations.&rdquo;
           </blockquote>
         </FadeIn>
-      </section>
-
-      {/* Latest from the blog */}
-      <section className="bg-cream px-6 py-24 lg:py-28">
-        <div className="mx-auto max-w-[1100px]">
-          <SectionHeader
-            label="Journal"
-            title="From the Blog"
-          />
-          <div className="grid gap-8 md:grid-cols-3">
-            {BLOG_POSTS.slice(0, 3).map((post, i) => (
-              <FadeIn key={post.slug} delay={i * 100}>
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="group block h-full border border-border bg-warm-white transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(59,74,58,0.08)]"
-                >
-                  <div className="flex h-36 items-center justify-center bg-gradient-to-br from-ivory to-[#E8E2D6]">
-                    <span className="font-heading text-base italic text-green-muted/60">
-                      {post.category}
-                    </span>
-                  </div>
-                  <div className="p-5">
-                    <p className="mb-2 text-[0.65rem] font-medium uppercase tracking-[0.15em] text-green-muted">
-                      {formatDate(post.date)}
-                    </p>
-                    <h3 className="font-heading text-lg font-medium text-green-dark transition-colors duration-300 group-hover:text-green">
-                      {post.title}
-                    </h3>
-                  </div>
-                </Link>
-              </FadeIn>
-            ))}
-          </div>
-          <FadeIn className="mt-10 text-center">
-            <Button href="/blog" variant="secondary">
-              View All Posts
-            </Button>
-          </FadeIn>
-        </div>
       </section>
 
       {/* Contact */}
@@ -193,16 +156,19 @@ export default function HomePage() {
           <SectionHeader label="Get in Touch" title="Contact" />
           <FadeIn>
             <p className="mb-7 text-base leading-loose text-text-light">
-              Questions about custom orders or anything else? Drop us a line.
+              Questions about custom orders or collaborations or just want to say
+              hello? Connect with me here!
             </p>
             <Button href={`mailto:${CONTACT_EMAIL}`}>Email Us</Button>
             <div className="mt-7">
               <a
-                href="#"
+                href="https://instagram.com/elisabeth.jane.c"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-xs uppercase tracking-[0.12em] text-green-muted hover:text-green-dark"
                 aria-label="Instagram"
               >
-                Instagram
+                @elisabeth.jane.c
               </a>
             </div>
           </FadeIn>

@@ -1,47 +1,54 @@
-import type { Product, BlogPost, NavLink } from "./types";
+import type { Product, NavLink } from "./types";
 
 export const SITE_NAME = "Elisabeth Jane";
 export const SITE_DESCRIPTION =
   "Hand-painted recipe boxes made to be used, loved, and passed down.";
 export const SITE_URL = "https://elisabethjane.com";
-export const CONTACT_EMAIL = "hello@elisabethjane.com";
+export const CONTACT_EMAIL = "helloelisabethjane@gmail.com";
 
 export const NAV_LINKS: readonly NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Shop", href: "/#shop" },
-  { label: "Blog", href: "/blog" },
+  { label: "Stockists", href: "/stockists" },
   { label: "Contact", href: "/#contact" },
 ];
 
-// Replace these with your actual Stripe Payment Links
 export const PRODUCTS: readonly Product[] = [
   {
-    id: "classic-floral",
-    name: "Classic Floral Recipe Box",
+    id: "strawberry-large",
+    name: "Strawberry Hand-Painted Recipe Box",
     description:
-      "Wildflowers in soft, muted tones. Our most popular design.",
-    price: "$85.00",
+      "The classic and original Elisabeth Jane recipe box. A vintage wooden box hand-painted with strawberries that is perfect for gathering loved ones around the table.",
+    price: "$30.00",
     stripeLink: "https://buy.stripe.com/YOUR_LINK_HERE",
-    tag: "Floral",
+    tag: "Strawberry",
+    dimensions:
+      '6.5" x 4.4" x 3.6" (16.5cm x 9.1cm x 11.1cm) exterior · 5.9" x 3.9" x 3" (15cm x 9.9cm x 7.6cm) interior',
+    details: [
+      "Fits a 4x6 card",
+      "Metal hinges",
+      "Magnetic closure",
+      "Sealed with polyurethane",
+      "Wrapped and shipped carefully in a small cardboard box",
+      "Free local pick up",
+    ],
   },
   {
-    id: "garden-botanicals",
-    name: "Garden Botanicals Recipe Box",
+    id: "strawberry-small",
+    name: "Strawberry Hand-Painted Recipe Box (Small)",
     description:
-      "Herbs and greenery inspired by the kitchen garden.",
-    price: "$85.00",
+      "The classic and original Elisabeth Jane recipe box in a smaller size. This is for those who have smaller recipes to keep. These are limited in stock and will discontinue after they sell out.",
+    price: "$20.00",
     stripeLink: "https://buy.stripe.com/YOUR_LINK_HERE",
-    tag: "Botanicals",
-  },
-  {
-    id: "heirloom-rose",
-    name: "Heirloom Rose Recipe Box",
-    description:
-      "Heritage roses in warm, earthy tones.",
-    price: "$90.00",
-    stripeLink: "https://buy.stripe.com/YOUR_LINK_HERE",
-    tag: "Rose",
+    tag: "Strawberry",
+    dimensions: '5 3/4" x 3 3/4" x 3 3/4"',
+    details: [
+      "Fits a 3x5 card",
+      "Sealed with polyurethane",
+      "Wrapped and shipped carefully in a small cardboard box",
+      "Free local pick up",
+    ],
   },
 ];
 
@@ -49,119 +56,9 @@ export const EXTRAS: readonly Product[] = [
   {
     id: "recipe-cards",
     name: "Hand-Painted Recipe Card Set",
-    price: "$24.00",
-    stripeLink: "https://buy.stripe.com/YOUR_LINK_HERE",
+    price: "",
+    stripeLink: "#",
     tag: "Recipe Cards",
-  },
-  {
-    id: "gift-set",
-    name: "Recipe Box Gift Set",
-    price: "$110.00",
-    stripeLink: "https://buy.stripe.com/YOUR_LINK_HERE",
-    tag: "Gift Set",
-  },
-];
-
-export const BLOG_POSTS: readonly BlogPost[] = [
-  {
-    slug: "the-art-of-hand-painting",
-    title: "The Art of Hand-Painting: Why Every Box Is Unique",
-    excerpt:
-      "Every box is painted by hand &mdash; no stamps, no stencils. Here's what that actually looks like and why the small differences matter.",
-    date: "2026-02-10",
-    category: "Behind the Scenes",
-    content: `
-Each Elisabeth Jane recipe box is painted by hand, one brushstroke at a time. There are no stamps, no stencils, no shortcuts. And that's exactly the point.
-
-## Why Hand-Painted?
-
-In a world of mass production, there's something deeply meaningful about owning something made entirely by hand. When you hold an Elisabeth Jane recipe box, you're holding hours of careful, intentional work — every petal, every leaf, every delicate line placed with purpose.
-
-## Embracing the Imperfect
-
-No two boxes will ever look exactly the same. The florals on your box might bloom a little differently than the ones on your best friend's. A leaf might curve a slightly different way. The green might be a shade deeper or softer.
-
-This isn't a flaw — it's the beauty of handmade art. These small variations are what make your box *yours*. They're the fingerprint of the artist, the proof that a real person sat down and created something beautiful just for you.
-
-## The Process
-
-Each box begins with a sketch — a loose, organic layout of where the florals and botanicals will live. From there, the base colors are layered in, building depth and warmth. Details come last: the fine lines, the tiny buds, the subtle shadows that bring each flower to life.
-
-The entire process takes several hours per box, and every single one is a labor of love.
-
-## A Piece of Art for Your Kitchen
-
-We believe your kitchen deserves beautiful things. Not just functional things — but things that make you pause, smile, and feel connected to something slower and more intentional. That's what an Elisabeth Jane recipe box is all about.
-    `,
-  },
-  {
-    slug: "building-a-family-recipe-collection",
-    title: "Building a Family Recipe Collection: Where to Start",
-    excerpt:
-      "Starting a recipe collection doesn't have to be complicated. A few tips on gathering the recipes that matter before they're lost.",
-    date: "2026-02-03",
-    category: "Recipes & Traditions",
-    content: `
-Starting a family recipe collection can feel overwhelming. Where do you begin? What counts as a "family recipe"? Here's our heartfelt guide to gathering and preserving the recipes that matter most.
-
-## Start with the Ones You Remember
-
-Close your eyes and think about the meals that shaped your childhood. Your grandmother's Sunday roast. Your dad's scrambled eggs. The birthday cake that appeared every single year without fail. Those are your starting points.
-
-You don't need a hundred recipes to start a meaningful collection. You just need the ones that carry a story.
-
-## Ask the Family
-
-Pick up the phone. Visit in person if you can. Ask your parents, grandparents, aunts, and uncles about the dishes they grew up eating. You'll be surprised how many recipes live only in someone's memory — never written down, passed along by watching and doing.
-
-Write them down now, while you still can. Include the measurements (even if it's "a handful" or "until it looks right"), the techniques, and most importantly, the stories behind them.
-
-## Don't Forget the Simple Ones
-
-Not every recipe in your collection needs to be elaborate. Some of the most treasured family recipes are the simplest: a perfect pot of rice, a vinaigrette that goes on everything, the way someone always made toast.
-
-Simple recipes carry just as much love as complex ones.
-
-## Give Them a Beautiful Home
-
-Once you've gathered your recipes, they deserve a home that honors them. An Elisabeth Jane recipe box is designed to be exactly that — a beautiful, hand-painted vessel for your family's most important food memories.
-
-Write your recipes on cards, tuck them into your box, and know that you've created something your children and grandchildren will treasure.
-    `,
-  },
-  {
-    slug: "cottagecore-kitchen-essentials",
-    title: "Cottagecore Kitchen Essentials: Creating a Space You Love",
-    excerpt:
-      "Simple ways to make your kitchen a place you actually want to spend time in.",
-    date: "2026-01-20",
-    category: "Lifestyle",
-    content: `
-The cottagecore aesthetic is more than a trend — it's a way of living that celebrates slowness, beauty, and the art of homemaking. Here's how to bring that warmth into your kitchen.
-
-## Natural Materials
-
-Start by swapping out plastic and synthetic items for natural alternatives. Wooden cutting boards, ceramic bowls, linen dish towels, and woven baskets instantly warm up a space. These materials age beautifully and develop character over time.
-
-## Fresh Herbs & Florals
-
-Nothing says cottagecore quite like a windowsill lined with fresh herbs or a jar of wildflowers on the counter. Rosemary, thyme, and lavender are beautiful *and* functional. Snip them straight into your cooking.
-
-## Open Shelving
-
-If you have the space, consider replacing a cabinet or two with open shelving. Display your prettiest dishes, your collection of vintage cookbooks, and of course, your hand-painted Elisabeth Jane recipe box.
-
-## Warm Lighting
-
-Swap harsh overhead lights for warm, soft lighting. A pendant light with a warm bulb, a few candles, or even string lights can completely change the atmosphere of a kitchen.
-
-## Handmade Touches
-
-The heart of cottagecore is the handmade. A hand-painted recipe box, a hand-thrown mug, a hand-embroidered tea towel — these small touches tell a story and make your kitchen feel uniquely yours.
-
-## Slow Down
-
-The most important cottagecore kitchen essential isn't something you buy — it's a mindset. Take your time. Enjoy the process of cooking. Put on music. Pour yourself a cup of tea while dinner simmers. Your kitchen is meant to be lived in, not rushed through.
-    `,
+    comingSoon: true,
   },
 ];

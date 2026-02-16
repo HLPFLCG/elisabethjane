@@ -10,7 +10,7 @@ export default function Footer() {
           <div>
             <p className="font-heading text-3xl font-light">{SITE_NAME}</p>
             <p className="mt-2 text-xs leading-relaxed tracking-[0.05em] text-cream/50">
-              Hand-painted recipe boxes.
+              Hand-painted with love in Michigan.
             </p>
           </div>
 
@@ -45,11 +45,13 @@ export default function Footer() {
             </a>
             <div className="mt-4 flex gap-5">
               <a
-                href="#"
+                href="https://instagram.com/elisabeth.jane.c"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-xs uppercase tracking-[0.12em] text-cream/60 hover:text-cream"
                 aria-label="Instagram"
               >
-                Instagram
+                @elisabeth.jane.c
               </a>
             </div>
           </div>

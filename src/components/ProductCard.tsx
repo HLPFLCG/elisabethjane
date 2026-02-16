@@ -11,6 +11,9 @@ export default function ProductCard({
   price,
   stripeLink,
   tag,
+  dimensions,
+  details,
+  comingSoon = false,
   compact = false,
 }: ProductCardProps) {
   if (compact) {
@@ -24,17 +27,25 @@ export default function ProductCard({
         <h4 className="font-heading text-lg font-medium text-green-dark">
           {name}
         </h4>
-        <p className="mt-2 font-heading text-xl font-medium text-green-dark">
-          {price}
-        </p>
-        <a
-          href={stripeLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 inline-block w-full border border-green-dark bg-transparent px-9 py-3.5 text-center text-xs font-medium uppercase tracking-[0.12em] text-green-dark transition-all duration-300 hover:bg-green-dark hover:text-cream"
-        >
-          Purchase
-        </a>
+        {comingSoon ? (
+          <p className="mt-3 text-xs font-medium uppercase tracking-[0.12em] text-green-muted">
+            Coming Soon
+          </p>
+        ) : (
+          <>
+            <p className="mt-2 font-heading text-xl font-medium text-green-dark">
+              {price}
+            </p>
+            <a
+              href={stripeLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-block w-full border border-green-dark bg-transparent px-9 py-3.5 text-center text-xs font-medium uppercase tracking-[0.12em] text-green-dark transition-all duration-300 hover:bg-green-dark hover:text-cream"
+            >
+              Purchase
+            </a>
+          </>
+        )}
       </div>
     );
   }
@@ -56,6 +67,24 @@ export default function ProductCard({
           <p className="mt-2.5 text-sm leading-relaxed text-text-light">
             {description}
           </p>
+        )}
+        {dimensions && (
+          <p className="mt-3 text-xs leading-relaxed text-text-light">
+            <span className="font-medium text-green-dark">Dimensions:</span>{" "}
+            {dimensions}
+          </p>
+        )}
+        {details && details.length > 0 && (
+          <ul className="mt-3 space-y-1">
+            {details.map((detail) => (
+              <li
+                key={detail}
+                className="text-xs leading-relaxed text-text-light"
+              >
+                &bull; {detail}
+              </li>
+            ))}
+          </ul>
         )}
         <div className={cn("mt-4 flex items-center justify-between", !description && "mt-3")}>
           <p className="font-heading text-xl font-medium text-green-dark">
