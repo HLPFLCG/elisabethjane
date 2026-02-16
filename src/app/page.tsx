@@ -1,0 +1,181 @@
+import Link from "next/link";
+import SectionHeader from "@/components/SectionHeader";
+import ProductCard from "@/components/ProductCard";
+import { PRODUCTS, EXTRAS } from "@/lib/constants";
+
+export default function HomePage() {
+  return (
+    <>
+      {/* Hero */}
+      <header className="flex min-h-screen items-center justify-center bg-ivory bg-[radial-gradient(ellipse_at_20%_50%,rgba(107,127,107,0.06)_0%,transparent_60%),radial-gradient(ellipse_at_80%_30%,rgba(200,169,110,0.05)_0%,transparent_50%)] px-6 pb-20 pt-32 text-center">
+        <div className="max-w-[700px]">
+          <p className="mb-6 text-xs font-medium uppercase tracking-[0.25em] text-green-muted">
+            Hand-Painted &middot; Heirloom Quality
+          </p>
+          <h1 className="mb-6 font-heading text-5xl font-light tracking-wide text-green-dark md:text-6xl lg:text-7xl">
+            Elisabeth Jane
+          </h1>
+          <p className="mx-auto mb-10 max-w-[560px] text-lg leading-loose text-text-light">
+            Whimsical, hand-painted recipe boxes crafted to hold your most
+            treasured family recipes &mdash; and become a timeless heirloom in
+            your home.
+          </p>
+          <a
+            href="#shop"
+            className="inline-block bg-green-dark px-9 py-4 text-xs font-medium uppercase tracking-[0.12em] text-cream transition-all duration-300 hover:-translate-y-0.5 hover:bg-green"
+          >
+            Shop Recipe Boxes
+          </a>
+        </div>
+      </header>
+
+      {/* About preview */}
+      <section className="bg-cream px-6 py-24 lg:py-28">
+        <div className="mx-auto max-w-[1100px]">
+          <SectionHeader label="Our Story" title="A Little About Elisabeth Jane" />
+          <div className="grid gap-14 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
+            <div className="space-y-5 text-base leading-loose text-text-light">
+              <p>
+                Elisabeth Jane was born from a love of nostalgia, homestead
+                living, and the art of slowing down. Each recipe box is
+                hand-painted with care &mdash; inspired by whimsical florals,
+                cottagecore aesthetics, and the timeless beauty of heirloom
+                keepsakes.
+              </p>
+              <p>
+                We believe that recipes are more than instructions &mdash; they
+                are memories, traditions, and love passed down through
+                generations. Our hand-painted recipe boxes are designed to be a
+                beautiful home for those stories.
+              </p>
+              <p>
+                Every brushstroke carries intention. Every box is made to be
+                cherished, gifted, and handed down.
+              </p>
+              <Link
+                href="/about"
+                className="mt-2 inline-block text-xs font-medium uppercase tracking-[0.12em] text-green-dark underline underline-offset-4 hover:text-green"
+              >
+                Read more about us
+              </Link>
+            </div>
+            <div className="flex flex-col gap-8">
+              {(
+                [
+                  ["Whimsical", "Playful floral designs inspired by nature and nostalgia."],
+                  ["Handmade", "Each box is individually hand-painted, making every piece one of a kind."],
+                  ["Heirloom", "Crafted to last and be passed down through generations."],
+                ] as const
+              ).map(([title, desc]) => (
+                <div
+                  key={title}
+                  className="border-l-[3px] border-green-muted bg-ivory p-7"
+                >
+                  <h3 className="mb-2 font-heading text-lg font-medium text-green-dark">
+                    {title}
+                  </h3>
+                  <p className="text-sm text-text-light">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Shop */}
+      <section id="shop" className="scroll-mt-20 bg-warm-white px-6 py-24 lg:py-28">
+        <div className="mx-auto max-w-[1100px]">
+          <SectionHeader label="The Collection" title="Shop Recipe Boxes" />
+
+          {/* Disclaimer */}
+          <div className="mx-auto -mt-6 mb-12 max-w-[700px] border border-border bg-ivory px-7 py-5 text-center text-sm italic leading-relaxed text-text-light">
+            Please know that due to the nature of each recipe box being hand
+            painted, it will have slight variations in look and expression. This
+            is what makes each box uniquely yours.
+          </div>
+
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {PRODUCTS.map((product) => (
+              <ProductCard key={product.id} {...product} />
+            ))}
+          </div>
+
+          {/* You Might Also Like */}
+          <div className="mt-20 border-t border-border pt-16">
+            <h3 className="mb-10 text-center font-heading text-3xl font-normal text-green-dark">
+              You Might Also Like
+            </h3>
+            <div className="mx-auto grid max-w-[700px] gap-8 sm:grid-cols-2">
+              {EXTRAS.map((extra) => (
+                <ProductCard key={extra.id} {...extra} compact />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section className="bg-ivory px-6 py-24 lg:py-28">
+        <div className="mx-auto max-w-[1100px]">
+          <SectionHeader label="Behind the Brush" title="The Process" />
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            {(
+              [
+                ["01", "Design", "Each floral motif is designed by hand, drawing inspiration from vintage botanicals, cottage gardens, and the beauty of the natural world."],
+                ["02", "Paint", "Every recipe box is individually hand-painted with care and attention to detail. No two boxes are exactly alike — each one carries its own character."],
+                ["03", "Seal & Finish", "Each box is sealed with a protective finish to ensure your heirloom recipe box lasts for generations to come."],
+                ["04", "Ship with Love", "Carefully packaged and shipped to your doorstep, ready to hold your most cherished recipes and family traditions."],
+              ] as const
+            ).map(([num, title, desc]) => (
+              <div key={num} className="p-5 text-center">
+                <div className="mb-4 font-heading text-4xl font-light text-green-muted/60">
+                  {num}
+                </div>
+                <h3 className="mb-3 font-heading text-lg font-medium text-green-dark">
+                  {title}
+                </h3>
+                <p className="text-sm leading-relaxed text-text-light">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Quote */}
+      <section className="bg-green-dark px-6 py-20">
+        <div className="mx-auto max-w-[800px]">
+          <blockquote className="text-center font-heading text-xl font-light italic leading-relaxed text-cream md:text-2xl lg:text-3xl">
+            &ldquo;Recipes are more than ingredients and instructions &mdash;
+            they are stories, memories, and love. Elisabeth Jane recipe boxes are
+            crafted to hold all of it.&rdquo;
+          </blockquote>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section className="bg-cream px-6 py-24 lg:py-28">
+        <div className="mx-auto max-w-[500px] text-center">
+          <SectionHeader label="Get in Touch" title="Contact" />
+          <p className="mb-7 text-base leading-loose text-text-light">
+            For custom orders, wholesale inquiries, or just to say hello &mdash;
+            we&rsquo;d love to hear from you.
+          </p>
+          <a
+            href="mailto:hello@elisabethjane.com"
+            className="inline-block bg-green-dark px-9 py-4 text-xs font-medium uppercase tracking-[0.12em] text-cream transition-all duration-300 hover:-translate-y-0.5 hover:bg-green"
+          >
+            Email Us
+          </a>
+          <div className="mt-7">
+            <a
+              href="#"
+              className="text-xs uppercase tracking-[0.12em] text-green-muted hover:text-green-dark"
+            >
+              Instagram
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
