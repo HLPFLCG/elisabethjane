@@ -50,5 +50,11 @@ export const PRODUCTS: readonly Product[] = [
       "Wrapped and shipped carefully in a small cardboard box",
       "Free local pick up",
     ],
+    images: [
+      "/images/products/small-box-1.jpg",
+      "/images/products/small-box-2.jpg",
+      "/images/products/small-box-3.jpg",
+      "/images/products/small-box-4.jpg",
+    ],
   },
 ];
