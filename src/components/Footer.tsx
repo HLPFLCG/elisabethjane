@@ -10,8 +10,7 @@ export default function Footer() {
           <div>
             <p className="font-heading text-3xl font-light">{SITE_NAME}</p>
             <p className="mt-2 text-xs leading-relaxed tracking-[0.05em] text-cream/50">
-              Hand-painted recipe boxes crafted to hold your most treasured
-              family recipes and become a timeless heirloom.
+              Hand-painted recipe boxes.
             </p>
           </div>
 
@@ -59,7 +58,6 @@ export default function Footer() {
         <div className="mt-12 border-t border-cream/10 pt-8 text-center">
           <p className="text-[0.65rem] tracking-[0.05em] text-cream/30">
             &copy; {new Date().getFullYear()} {SITE_NAME}. All rights reserved.
-            &middot; Hand-painted with love.
           </p>
         </div>
       </div>

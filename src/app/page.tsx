@@ -13,15 +13,13 @@ export default function HomePage() {
       <header className="flex min-h-svh items-center justify-center bg-ivory bg-[radial-gradient(ellipse_at_20%_50%,rgba(107,127,107,0.06)_0%,transparent_60%),radial-gradient(ellipse_at_80%_30%,rgba(200,169,110,0.05)_0%,transparent_50%)] px-6 pb-20 pt-32 text-center">
         <div className="max-w-[700px] animate-fade-up">
           <p className="mb-6 text-xs font-medium uppercase tracking-[0.25em] text-green-muted">
-            Hand-Painted &middot; Heirloom Quality
+            Hand-Painted Recipe Boxes
           </p>
           <h1 className="mb-6 font-heading text-5xl font-light tracking-wide text-green-dark md:text-6xl lg:text-7xl">
             Elisabeth Jane
           </h1>
           <p className="mx-auto mb-10 max-w-[560px] text-lg leading-loose text-text-light">
-            Whimsical, hand-painted recipe boxes crafted to hold your most
-            treasured family recipes &mdash; and become a timeless heirloom in
-            your home.
+            Hand-painted recipe boxes made to be used, loved, and passed down.
           </p>
           <Button href="#shop">Shop Recipe Boxes</Button>
         </div>
@@ -30,25 +28,19 @@ export default function HomePage() {
       {/* About preview */}
       <section className="bg-cream px-6 py-24 lg:py-28">
         <div className="mx-auto max-w-[1100px]">
-          <SectionHeader label="Our Story" title="A Little About Elisabeth Jane" />
+          <SectionHeader label="Our Story" title="About Elisabeth Jane" />
           <div className="grid gap-14 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
             <FadeIn className="space-y-5 text-base leading-loose text-text-light">
               <p>
-                Elisabeth Jane was born from a love of nostalgia, homestead
-                living, and the art of slowing down. Each recipe box is
-                hand-painted with care &mdash; inspired by whimsical florals,
-                cottagecore aesthetics, and the timeless beauty of heirloom
-                keepsakes.
+                Elisabeth Jane started with a single recipe box &mdash;
+                hand-painted as a gift &mdash; that turned into something much
+                bigger. Now every box is still painted one at a time, start to
+                finish, by hand.
               </p>
               <p>
-                We believe that recipes are more than instructions &mdash; they
-                are memories, traditions, and love passed down through
-                generations. Our hand-painted recipe boxes are designed to be a
-                beautiful home for those stories.
-              </p>
-              <p>
-                Every brushstroke carries intention. Every box is made to be
-                cherished, gifted, and handed down.
+                The designs pull from nature &mdash; wildflowers, garden herbs,
+                vintage botanicals &mdash; and no two are exactly alike. That's
+                the whole point.
               </p>
               <Link
                 href="/about"
@@ -60,9 +52,9 @@ export default function HomePage() {
             <div className="flex flex-col gap-8">
               {(
                 [
-                  ["Whimsical", "Playful floral designs inspired by nature and nostalgia."],
-                  ["Handmade", "Each box is individually hand-painted, making every piece one of a kind."],
-                  ["Heirloom", "Crafted to last and be passed down through generations."],
+                  ["One of a Kind", "Every box is painted individually &mdash; no stamps, no stencils, no two the same."],
+                  ["Made to Last", "Sealed and finished so they hold up to real, everyday use."],
+                  ["Nature-Inspired", "Florals, herbs, and botanicals drawn from the garden."],
                 ] as const
               ).map(([title, desc], i) => (
                 <FadeIn
@@ -121,14 +113,14 @@ export default function HomePage() {
       {/* Process */}
       <section className="bg-ivory px-6 py-24 lg:py-28">
         <div className="mx-auto max-w-[1100px]">
-          <SectionHeader label="Behind the Brush" title="The Process" />
+          <SectionHeader label="How It's Made" title="The Process" />
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {(
               [
-                ["01", "Design", "Each floral motif is designed by hand, drawing inspiration from vintage botanicals, cottage gardens, and the beauty of the natural world."],
-                ["02", "Paint", "Every recipe box is individually hand-painted with care and attention to detail. No two boxes are exactly alike — each one carries its own character."],
-                ["03", "Seal & Finish", "Each box is sealed with a protective finish to ensure your heirloom recipe box lasts for generations to come."],
-                ["04", "Ship with Love", "Carefully packaged and shipped to your doorstep, ready to hold your most cherished recipes and family traditions."],
+                ["01", "Sketch", "Each design starts as a loose pencil sketch &mdash; mapping out where the florals and greenery will go."],
+                ["02", "Paint", "Base colours are layered in first, then the details: fine lines, small buds, and the shadows that bring everything together."],
+                ["03", "Seal", "A protective finish goes on last so the box can handle real kitchen life, not just sit on a shelf."],
+                ["04", "Ship", "Carefully wrapped and sent out to you."],
               ] as const
             ).map(([num, title, desc], i) => (
               <FadeIn key={num} delay={i * 100} className="p-5 text-center">
@@ -149,9 +141,9 @@ export default function HomePage() {
       <section className="bg-green-dark px-6 py-20 lg:py-24">
         <FadeIn className="mx-auto max-w-[800px]">
           <blockquote className="text-center font-heading text-xl font-light italic leading-relaxed text-cream md:text-2xl lg:text-3xl">
-            &ldquo;Recipes are more than ingredients and instructions &mdash;
-            they are stories, memories, and love. Elisabeth Jane recipe boxes are
-            crafted to hold all of it.&rdquo;
+            &ldquo;A recipe box is the kind of thing you don&rsquo;t think about
+            until someone hands you your grandmother&rsquo;s. Then you get
+            it.&rdquo;
           </blockquote>
         </FadeIn>
       </section>
@@ -162,7 +154,6 @@ export default function HomePage() {
           <SectionHeader
             label="Journal"
             title="From the Blog"
-            description="Stories, inspiration, and a behind-the-scenes look at life with Elisabeth Jane."
           />
           <div className="grid gap-8 md:grid-cols-3">
             {BLOG_POSTS.slice(0, 3).map((post, i) => (
@@ -202,8 +193,7 @@ export default function HomePage() {
           <SectionHeader label="Get in Touch" title="Contact" />
           <FadeIn>
             <p className="mb-7 text-base leading-loose text-text-light">
-              For custom orders, wholesale inquiries, or just to say hello
-              &mdash; we&rsquo;d love to hear from you.
+              Questions about custom orders or anything else? Drop us a line.
             </p>
             <Button href={`mailto:${CONTACT_EMAIL}`}>Email Us</Button>
             <div className="mt-7">
