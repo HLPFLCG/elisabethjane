@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
 import type { Product } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -13,8 +17,11 @@ export default function ProductCard({
   tag,
   dimensions,
   details,
+  images,
   compact = false,
 }: ProductCardProps) {
+  const [activeImage, setActiveImage] = useState(0);
+
   if (compact) {
     return (
       <div className="group border border-border bg-cream p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(59,74,58,0.06)]">
@@ -44,11 +51,40 @@ export default function ProductCard({
   return (
     <div className="group overflow-hidden border border-border bg-cream transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(59,74,58,0.08)]">
       <div className="aspect-square overflow-hidden">
-        <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-ivory to-[#E8E2D6] transition-transform duration-700 group-hover:scale-[1.03]">
-          <span className="font-heading text-xl italic text-green-muted transition-opacity duration-300 group-hover:opacity-70">
-            {tag}
-          </span>
-        </div>
+        {images && images.length > 0 ? (
+          <div className="relative h-full w-full">
+            <Image
+              src={images[activeImage]}
+              alt={`${name} - photo ${activeImage + 1}`}
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+              sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 450px"
+            />
+            {images.length > 1 && (
+              <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2">
+                {images.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveImage(i)}
+                    aria-label={`View photo ${i + 1}`}
+                    className={cn(
+                      "h-2 w-2 rounded-full transition-all duration-300",
+                      i === activeImage
+                        ? "scale-110 bg-green-dark"
+                        : "bg-green-dark/30 hover:bg-green-dark/60"
+                    )}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-ivory to-[#E8E2D6] transition-transform duration-700 group-hover:scale-[1.03]">
+            <span className="font-heading text-xl italic text-green-muted transition-opacity duration-300 group-hover:opacity-70">
+              {tag}
+            </span>
+          </div>
+        )}
       </div>
       <div className="p-6">
         <h3 className="font-heading text-lg font-medium text-green-dark">

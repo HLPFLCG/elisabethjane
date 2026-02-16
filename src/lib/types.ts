@@ -7,6 +7,7 @@ export interface Product {
   tag: string;
   dimensions?: string;
   details?: string[];
+  images?: string[];
 }
 
 export interface BlogPost {
