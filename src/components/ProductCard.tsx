@@ -61,21 +61,70 @@ export default function ProductCard({
               sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 450px"
             />
             {images.length > 1 && (
-              <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2">
-                {images.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setActiveImage(i)}
-                    aria-label={`View photo ${i + 1}`}
-                    className={cn(
-                      "h-2 w-2 rounded-full transition-all duration-300",
-                      i === activeImage
-                        ? "scale-110 bg-green-dark"
-                        : "bg-green-dark/30 hover:bg-green-dark/60"
-                    )}
-                  />
-                ))}
-              </div>
+              <>
+                {/* Left arrow */}
+                <button
+                  onClick={() =>
+                    setActiveImage((prev) =>
+                      prev === 0 ? images.length - 1 : prev - 1
+                    )
+                  }
+                  aria-label="Previous photo"
+                  className="absolute left-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-cream/80 text-green-dark shadow-sm backdrop-blur-sm transition-all duration-200 hover:bg-cream hover:shadow-md"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="h-4 w-4"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </button>
+                {/* Right arrow */}
+                <button
+                  onClick={() =>
+                    setActiveImage((prev) =>
+                      prev === images.length - 1 ? 0 : prev + 1
+                    )
+                  }
+                  aria-label="Next photo"
+                  className="absolute right-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-cream/80 text-green-dark shadow-sm backdrop-blur-sm transition-all duration-200 hover:bg-cream hover:shadow-md"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="h-4 w-4"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </button>
+                {/* Dots */}
+                <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2">
+                  {images.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setActiveImage(i)}
+                      aria-label={`View photo ${i + 1}`}
+                      className={cn(
+                        "h-2 w-2 rounded-full transition-all duration-300",
+                        i === activeImage
+                          ? "scale-110 bg-green-dark"
+                          : "bg-green-dark/30 hover:bg-green-dark/60"
+                      )}
+                    />
+                  ))}
+                </div>
+              </>
             )}
           </div>
         ) : (
