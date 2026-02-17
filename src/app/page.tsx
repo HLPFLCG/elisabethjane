@@ -136,6 +136,72 @@ export default function HomePage() {
         </FadeIn>
       </section>
 
+      {/* Stockists */}
+      <section id="stockists" className="scroll-mt-20 bg-cream px-6 py-24 lg:py-28">
+        <div className="mx-auto max-w-[700px] text-center">
+          <SectionHeader label="Find Us" title="Stockists" />
+          <FadeIn>
+            <div className="border border-border bg-warm-white p-10">
+              <h3 className="font-heading text-xl font-medium text-green-dark">
+                Stoffer Home
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-text-light">
+                Grand Rapids, Michigan
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Shipping & Policies */}
+      <section id="policies" className="scroll-mt-20 bg-warm-white px-6 py-24 lg:py-28">
+        <div className="mx-auto max-w-[800px]">
+          <SectionHeader label="Good to Know" title="Shipping &amp; Policies" />
+          <div className="grid gap-10 md:grid-cols-2">
+            <FadeIn className="space-y-4">
+              <h3 className="font-heading text-lg font-medium text-green-dark">
+                Shipping
+              </h3>
+              <div className="space-y-3 text-sm leading-relaxed text-text-light">
+                <p>
+                  Every recipe box is carefully wrapped and shipped in a small
+                  cardboard box to ensure it arrives safely.
+                </p>
+                <p>
+                  Orders are typically shipped within 5&ndash;7 business days, as
+                  each box is hand-painted to order.
+                </p>
+                <p>
+                  <span className="font-medium text-green-dark">Free local pick up</span>{" "}
+                  is available in the Grand Rapids, Michigan area.
+                </p>
+              </div>
+            </FadeIn>
+            <FadeIn delay={100} className="space-y-4">
+              <h3 className="font-heading text-lg font-medium text-green-dark">
+                Policies
+              </h3>
+              <div className="space-y-3 text-sm leading-relaxed text-text-light">
+                <p>
+                  Because each box is hand-painted and made to order, all sales
+                  are final. I am unable to accept returns or exchanges.
+                </p>
+                <p>
+                  If your box arrives damaged during shipping, please reach out
+                  within 7 days of delivery and I will do my best to make it
+                  right.
+                </p>
+                <p>
+                  Please note that due to the nature of each recipe box being
+                  hand-painted, slight variations in color and design are
+                  normal&mdash;this is what makes each box uniquely yours.
+                </p>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
       {/* Contact */}
       <section id="contact" className="scroll-mt-20 bg-ivory px-6 py-24 lg:py-28">
         <div className="mx-auto max-w-[500px] text-center">
