@@ -5,7 +5,7 @@ import FadeIn from "@/components/FadeIn";
 export const metadata: Metadata = {
   title: "Editing Guide",
   description:
-    "A complete guide on how to edit and customize the Elisabeth Jane website — update products, Stripe links, and more.",
+    "A complete guide on how to edit and customize the Elisabeth Jane website — update products, payment links, and more.",
 };
 
 function CodeBlock({ children }: { children: string }) {
@@ -80,18 +80,20 @@ const SECTIONS: GuideSection[] = [
     ),
   },
   {
-    title: "1. Updating Stripe Payment Links",
+    title: "1. Updating the Venmo Payment Link",
     content: (
       <>
         <p className="mb-4 text-base leading-loose text-text-light">
-          All product data and Stripe links live in one file:{" "}
+          All product data and payment links live in one file:{" "}
           <InlineCode>src/lib/constants.ts</InlineCode>
         </p>
         <p className="mb-4 text-base leading-loose text-text-light">
-          Find the <InlineCode>PRODUCTS</InlineCode> array and replace the{" "}
-          <InlineCode>stripeLink</InlineCode> values:
+          The Venmo URL is stored as a constant and on each product via the{" "}
+          <InlineCode>venmoLink</InlineCode> field:
         </p>
         <CodeBlock>{`// src/lib/constants.ts
+
+export const VENMO_URL = "https://venmo.com/u/Emma-Cole-724";
 
 export const PRODUCTS: readonly Product[] = [
   {
@@ -99,16 +101,16 @@ export const PRODUCTS: readonly Product[] = [
     name: "Strawberry Hand-Painted Recipe Box: Large",
     description: "The classic and original...",
     price: "$30.00",
-    stripeLink: "https://buy.stripe.com/YOUR_ACTUAL_LINK",  // ← Replace
+    venmoLink: "https://venmo.com/u/Emma-Cole-724",  // ← Replace if needed
     tag: "Strawberry",
     // ...
   },
 ];`}</CodeBlock>
         <Callout>
-          <strong>How to get Stripe Payment Links:</strong> Log into your{" "}
-          Stripe Dashboard &rarr; Payment Links &rarr; Create a new link for
-          each product &rarr; Paste the URL into the{" "}
-          <InlineCode>stripeLink</InlineCode> field.
+          <strong>Changing the Venmo link:</strong> Update the{" "}
+          <InlineCode>VENMO_URL</InlineCode> constant and the{" "}
+          <InlineCode>venmoLink</InlineCode> on each product in{" "}
+          <InlineCode>src/lib/constants.ts</InlineCode>.
         </Callout>
       </>
     ),
@@ -126,15 +128,15 @@ export const PRODUCTS: readonly Product[] = [
   name: "My New Recipe Box",   // Display name
   description: "Description...",
   price: "$95.00",             // Display price
-  stripeLink: "https://buy.stripe.com/...",
+  venmoLink: "https://venmo.com/u/Emma-Cole-724",
   tag: "Display Tag",          // Short label shown on placeholder
   dimensions: '6.5" x 4.4" x 3.6"',  // Optional
   details: ["Fits a 4x6 card", ...],  // Optional bullet list
   images: ["/images/products/my-box-1.jpg", ...],  // Optional
 }`}</CodeBlock>
         <Callout>
-          The price shown on the site is display-only. The actual charge
-          happens through Stripe, so update both places when changing prices.
+          The price shown on the site is display-only. The &ldquo;Purchase&rdquo;
+          button links to Venmo for payment.
         </Callout>
       </>
     ),
@@ -242,7 +244,7 @@ npm run build     # Build static export to out/`}</CodeBlock>
 ];
 
 const QUICK_REF: [string, string][] = [
-  ["Update Stripe links", "src/lib/constants.ts → stripeLink"],
+  ["Update Venmo link", "src/lib/constants.ts → venmoLink / VENMO_URL"],
   ["Add/edit products", "src/lib/constants.ts → PRODUCTS"],
   ["Add product images", "public/images/products/ + constants.ts → images"],
   ["Change colors", "src/app/globals.css → @theme"],
@@ -266,7 +268,7 @@ export default function GuidePage() {
             How to Edit This Site
           </h1>
           <p className="mx-auto max-w-[500px] text-lg leading-loose text-text-light">
-            A complete guide to updating products, Stripe links, styles, and
+            A complete guide to updating products, payment links, styles, and
             more.
           </p>
         </div>

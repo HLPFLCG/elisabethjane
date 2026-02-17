@@ -13,7 +13,7 @@ export default function ProductCard({
   name,
   description,
   price,
-  stripeLink,
+  venmoLink,
   tag,
   dimensions,
   details,
@@ -37,7 +37,7 @@ export default function ProductCard({
           {price}
         </p>
         <a
-          href={stripeLink}
+          href={venmoLink}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-4 inline-block w-full border border-green-dark bg-transparent px-9 py-3.5 text-center text-xs font-medium uppercase tracking-[0.12em] text-green-dark transition-all duration-300 hover:bg-green-dark hover:text-cream"
@@ -125,7 +125,7 @@ export default function ProductCard({
           </p>
         </div>
         <a
-          href={stripeLink}
+          href={venmoLink}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-3 inline-block w-full bg-green-dark px-9 py-3.5 text-center text-xs font-medium uppercase tracking-[0.12em] text-cream transition-all duration-300 hover:-translate-y-0.5 hover:bg-green"
@@ -133,7 +133,7 @@ export default function ProductCard({
           Purchase
         </a>
         <p className="mt-2 text-center text-[0.65rem] tracking-[0.05em] text-text-light">
-          Secure checkout powered by Stripe
+          Payment via Venmo
         </p>
       </div>
     </div>
