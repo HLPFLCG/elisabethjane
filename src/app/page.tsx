@@ -51,7 +51,7 @@ export default function HomePage() {
             <div className="flex flex-col gap-8">
               {(
                 [
-                  ["One of a Kind", "Every box is painted individually &mdash; no stamps, no stencils, no two the same."],
+                  ["One of a Kind", "Every box is painted individually. No stamps, no stencils, no two the same."],
                   ["Made to Last", "Sealed and finished so they hold up to real, everyday use."],
                   ["Nature-Inspired", "Florals, herbs, and botanicals drawn from the garden."],
                 ] as const
