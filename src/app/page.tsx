@@ -8,13 +8,13 @@ import { PRODUCTS, CONTACT_EMAIL, INSTAGRAM_URL } from "@/lib/constants";
 export default function HomePage() {
   return (
     <>
-      {/* Hero — Unsplash: wildflower meadow by Annie Spratt */}
+      {/* Hero */}
       <header className="relative flex min-h-svh items-center justify-center overflow-hidden bg-ivory px-6 pb-20 pt-32 text-center">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1722036566498-6ebfa11d68e2?w=1920&q=80&auto=format&fit=crop')",
+              "url('https://images.unsplash.com/photo-1457089328109-e5d9bd499191?w=1920&q=80&auto=format&fit=crop')",
           }}
           aria-hidden="true"
         />
@@ -32,6 +32,50 @@ export default function HomePage() {
           <Button href="#shop">Shop Recipe Boxes</Button>
         </div>
       </header>
+
+      {/* Shop — immediately after hero */}
+      <section id="shop" className="scroll-mt-20 bg-warm-white px-6 py-24 lg:py-28">
+        <div className="mx-auto max-w-[1100px]">
+          <SectionHeader label="The Collection" title="Shop Recipe Boxes" />
+
+          <FadeIn className="mx-auto -mt-4 mb-14 max-w-[540px] text-center text-sm italic leading-relaxed text-text-light">
+            Each box is hand-painted and will have slight variations &mdash;
+            this is what makes it uniquely yours.
+          </FadeIn>
+
+          <div className="mx-auto grid max-w-[960px] gap-10 lg:grid-cols-2">
+            {PRODUCTS.map((product, i) => (
+              <FadeIn key={product.id} delay={i * 120}>
+                <ProductCard {...product} />
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Quote */}
+      <section className="relative overflow-hidden bg-green-dark px-6 py-20 lg:py-24">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1446034295857-c899f4c4e1ed?w=1920&q=80&auto=format&fit=crop')",
+          }}
+          aria-hidden="true"
+        />
+        <FadeIn className="relative z-10 mx-auto max-w-[800px]">
+          <blockquote className="text-center font-heading text-lg font-light italic leading-relaxed text-cream md:text-xl lg:text-2xl">
+            &ldquo;In a world of screens and bookmarked links, a recipe box is
+            easily overlooked&mdash;until it&rsquo;s your grandmother&rsquo;s.
+            Then, it&rsquo;s no longer just a box; it&rsquo;s a legacy.
+            It&rsquo;s the scent of fresh morning coffee and the secret to her
+            homemade cinnamon rolls, captured on paper. This is more than a
+            kitchen staple; it&rsquo;s an heirloom meant to be filled with your
+            own &lsquo;slow&rsquo; moments and passed down to the next
+            generation.&rdquo;
+          </blockquote>
+        </FadeIn>
+      </section>
 
       {/* About preview */}
       <section className="bg-cream px-6 py-24 lg:py-28">
@@ -81,28 +125,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Shop */}
-      <section id="shop" className="scroll-mt-20 bg-warm-white px-6 py-24 lg:py-28">
-        <div className="mx-auto max-w-[1100px]">
-          <SectionHeader label="The Collection" title="Shop Recipe Boxes" />
-
-          <FadeIn className="mx-auto -mt-6 mb-12 max-w-[700px] border border-border bg-ivory px-7 py-5 text-center text-sm italic leading-relaxed text-text-light">
-            Please know that due to the nature of each recipe box being hand
-            painted, it will have slight variations in look and expression. This
-            is what makes each box uniquely yours.
-          </FadeIn>
-
-          <div className="mx-auto grid max-w-[900px] gap-8 sm:grid-cols-2">
-            {PRODUCTS.map((product, i) => (
-              <FadeIn key={product.id} delay={i * 100}>
-                <ProductCard {...product} />
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process — Unsplash: green botanical by Scott Webb */}
+      {/* Process */}
       <section className="relative overflow-hidden bg-ivory px-6 py-24 lg:py-28">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -118,7 +141,7 @@ export default function HomePage() {
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {(
               [
-                ["01", "Sketch", "Each design starts as a loose pencil sketch &mdash; mapping out where the florals and greenery will go."],
+                ["01", "Sketch", "Each design starts as a loose pencil sketch \u2014 mapping out where the florals and greenery will go."],
                 ["02", "Paint", "Base colours are layered in first, then the details: fine lines, small buds, and the shadows that bring everything together."],
                 ["03", "Seal", "A protective finish goes on last so the box can handle real kitchen life, not just sit on a shelf."],
                 ["04", "Ship", "Carefully wrapped and sent out to you."],
@@ -136,30 +159,6 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* Quote — Unsplash: dark botanical leaves */}
-      <section className="relative overflow-hidden bg-green-dark px-6 py-20 lg:py-24">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1461988320302-91bde64fc8e4?w=1920&q=80&auto=format&fit=crop')",
-          }}
-          aria-hidden="true"
-        />
-        <FadeIn className="relative z-10 mx-auto max-w-[800px]">
-          <blockquote className="text-center font-heading text-lg font-light italic leading-relaxed text-cream md:text-xl lg:text-2xl">
-            &ldquo;In a world of screens and bookmarked links, a recipe box is
-            easily overlooked&mdash;until it&rsquo;s your grandmother&rsquo;s.
-            Then, it&rsquo;s no longer just a box; it&rsquo;s a legacy.
-            It&rsquo;s the scent of fresh morning coffee and the secret to her
-            homemade cinnamon rolls, captured on paper. This is more than a
-            kitchen staple; it&rsquo;s an heirloom meant to be filled with your
-            own &lsquo;slow&rsquo; moments and passed down to the next
-            generation.&rdquo;
-          </blockquote>
-        </FadeIn>
       </section>
 
       {/* Stockists */}
