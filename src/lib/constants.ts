@@ -21,14 +21,14 @@ export const VENMO_URL = "https://venmo.com/u/Emma-Cole-724";
 export const PRODUCTS: readonly Product[] = [
   {
     id: "strawberry-large",
-    name: "Strawberry Hand-Painted Recipe Box: Large",
+    name: "Strawberry Hand-Painted Recipe Box (Large)",
     description:
       "The classic and original Elisabeth Jane recipe box. A vintage wooden box hand-painted with strawberries that is perfect for gathering loved ones around the table.",
     price: "$30.00",
     venmoLink: "https://venmo.com/u/Emma-Cole-724",
     tag: "Strawberry",
     dimensions:
-      '6.5" x 4.4" x 3.6" (16.5cm x 9.1cm x 11.1cm) exterior; 5.9" x 3.9" x 3" (15cm x 9.9cm x 7.6cm) interior',
+      '6.5" x 4.4" x 3.6" (16.5cm x 9.1cm x 11.1cm) exterior — 5.9" x 3.9" x 3" (15cm x 9.9cm x 7.6cm) interior',
     details: [
       "Fits a 4x6 card",
       "Metal Hinges",
