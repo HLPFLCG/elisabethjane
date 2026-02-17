@@ -28,7 +28,7 @@ export const PRODUCTS: readonly Product[] = [
     venmoLink: "https://venmo.com/u/Emma-Cole-724",
     tag: "Strawberry",
     dimensions:
-      '6.5" x 4.4" x 3.6" (16.5cm x 9.1cm x 11.1cm) exterior — 5.9" x 3.9" x 3" (15cm x 9.9cm x 7.6cm) interior',
+      '6.5" x 4.4" x 3.6" (16.5cm x 11.1cm x 9.1cm)',
     details: [
       "Fits a 4x6 card",
       "Metal Hinges",
@@ -51,7 +51,7 @@ export const PRODUCTS: readonly Product[] = [
     price: "$20.00",
     venmoLink: "https://venmo.com/u/Emma-Cole-724",
     tag: "Strawberry",
-    dimensions: '5 3/4" x 3 3/4" x 3 3/4"',
+    dimensions: '5.75" x 3.75" x 3.75" (14.6cm x 9.5cm x 9.5cm)',
     details: [
       "Fits a 3x5 card",
       "Sealed with Polyurethane",
