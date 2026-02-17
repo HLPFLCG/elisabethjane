@@ -8,9 +8,18 @@ import { PRODUCTS, CONTACT_EMAIL, INSTAGRAM_URL } from "@/lib/constants";
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <header className="flex min-h-svh items-center justify-center bg-ivory bg-[radial-gradient(ellipse_at_20%_50%,rgba(107,127,107,0.06)_0%,transparent_60%),radial-gradient(ellipse_at_80%_30%,rgba(200,169,110,0.05)_0%,transparent_50%)] px-6 pb-20 pt-32 text-center">
-        <div className="max-w-[700px] animate-fade-up">
+      {/* Hero — Unsplash: wildflower meadow by Annie Spratt */}
+      <header className="relative flex min-h-svh items-center justify-center overflow-hidden bg-ivory px-6 pb-20 pt-32 text-center">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1722036566498-6ebfa11d68e2?w=1920&q=80&auto=format&fit=crop')",
+          }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-ivory/80" aria-hidden="true" />
+        <div className="relative z-10 max-w-[700px] animate-fade-up">
           <p className="mb-6 text-xs font-medium uppercase tracking-[0.25em] text-green-muted">
             Hand-Painted Recipe Boxes
           </p>
@@ -93,9 +102,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Process */}
-      <section className="bg-ivory px-6 py-24 lg:py-28">
-        <div className="mx-auto max-w-[1100px]">
+      {/* Process — Unsplash: green botanical by Scott Webb */}
+      <section className="relative overflow-hidden bg-ivory px-6 py-24 lg:py-28">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1483794344563-d27a8d18014e?w=1920&q=80&auto=format&fit=crop')",
+          }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-ivory/90" aria-hidden="true" />
+        <div className="relative z-10 mx-auto max-w-[1100px]">
           <SectionHeader label="How It's Made" title="The Process" />
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {(
@@ -120,9 +138,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Quote */}
-      <section className="bg-green-dark px-6 py-20 lg:py-24">
-        <FadeIn className="mx-auto max-w-[800px]">
+      {/* Quote — Unsplash: dark botanical leaves */}
+      <section className="relative overflow-hidden bg-green-dark px-6 py-20 lg:py-24">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1461988320302-91bde64fc8e4?w=1920&q=80&auto=format&fit=crop')",
+          }}
+          aria-hidden="true"
+        />
+        <FadeIn className="relative z-10 mx-auto max-w-[800px]">
           <blockquote className="text-center font-heading text-lg font-light italic leading-relaxed text-cream md:text-xl lg:text-2xl">
             &ldquo;In a world of screens and bookmarked links, a recipe box is
             easily overlooked&mdash;until it&rsquo;s your grandmother&rsquo;s.

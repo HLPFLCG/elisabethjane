@@ -32,9 +32,18 @@ const VALUES: readonly [string, string][] = [
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
-      <header className="flex min-h-[60vh] items-center justify-center bg-ivory bg-[radial-gradient(ellipse_at_30%_40%,rgba(107,127,107,0.06)_0%,transparent_60%)] px-6 pb-16 pt-32 text-center">
-        <div className="max-w-[660px] animate-fade-up">
+      {/* Hero — Unsplash: botanical garden */}
+      <header className="relative flex min-h-[60vh] items-center justify-center overflow-hidden bg-ivory px-6 pb-16 pt-32 text-center">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1483794344563-d27a8d18014e?w=1920&q=80&auto=format&fit=crop')",
+          }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-ivory/85" aria-hidden="true" />
+        <div className="relative z-10 max-w-[660px] animate-fade-up">
           <p className="mb-6 text-xs font-medium uppercase tracking-[0.25em] text-green-muted">
             Our Story
           </p>
