@@ -38,7 +38,7 @@ export default function AboutPage() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1483794344563-d27a8d18014e?w=1920&q=80&auto=format&fit=crop')",
+              "url('https://images.unsplash.com/photo-1457089328109-e5d9bd499191?w=1920&q=80&auto=format&fit=crop')",
           }}
           aria-hidden="true"
         />
