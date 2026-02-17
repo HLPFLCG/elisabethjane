@@ -10,15 +10,6 @@ export interface Product {
   images?: string[];
 }
 
-export interface BlogPost {
-  slug: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  category: string;
-  content: string;
-}
-
 export interface NavLink {
   label: string;
   href: string;

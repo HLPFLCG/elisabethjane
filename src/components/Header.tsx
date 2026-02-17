@@ -28,9 +28,23 @@ export default function Header() {
 
   const isActive = (href: string): boolean => {
     if (href === "/") return pathname === "/";
-    if (href.startsWith("/#")) return pathname === "/";
+    if (href.startsWith("/#")) return false;
     return pathname.startsWith(href);
   };
+
+  const handleNavClick = useCallback(
+    (href: string) => {
+      closeMenu();
+      if (href.startsWith("/#") && pathname === "/") {
+        const id = href.slice(2);
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    },
+    [pathname, closeMenu]
+  );
 
   return (
     <nav
@@ -52,12 +66,13 @@ export default function Header() {
           {SITE_NAME}
         </Link>
 
-        <ul className="hidden gap-9 md:flex" role="menubar">
+        <ul className="hidden gap-5 lg:flex" role="menubar">
           {NAV_LINKS.map((link) => (
             <li key={link.href} role="none">
               <Link
                 href={link.href}
                 role="menuitem"
+                onClick={() => handleNavClick(link.href)}
                 className={cn(
                   "group relative text-xs font-normal uppercase tracking-[0.12em]",
                   isActive(link.href)
@@ -79,7 +94,7 @@ export default function Header() {
 
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="relative z-50 flex flex-col gap-[5px] p-2 md:hidden"
+          className="relative z-50 flex flex-col gap-[5px] p-2 lg:hidden"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
         >
@@ -107,7 +122,7 @@ export default function Header() {
       {/* Mobile menu */}
       <div
         className={cn(
-          "fixed top-0 right-0 h-dvh w-3/4 max-w-[300px] bg-cream shadow-[-4px_0_20px_rgba(0,0,0,0.08)] transition-transform duration-300 md:hidden",
+          "fixed top-0 right-0 h-dvh w-3/4 max-w-[300px] bg-cream shadow-[-4px_0_20px_rgba(0,0,0,0.08)] transition-transform duration-300 lg:hidden",
           menuOpen ? "translate-x-0" : "translate-x-full"
         )}
         aria-hidden={!menuOpen}
@@ -118,7 +133,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={closeMenu}
+                onClick={() => handleNavClick(link.href)}
                 className={cn(
                   "text-sm uppercase tracking-[0.12em] transition-all duration-300",
                   isActive(link.href)
@@ -143,7 +158,7 @@ export default function Header() {
 
       {menuOpen && (
         <div
-          className="fixed inset-0 z-[-1] bg-black/20 backdrop-blur-[2px] md:hidden"
+          className="fixed inset-0 z-[-1] bg-black/20 backdrop-blur-[2px] lg:hidden"
           onClick={closeMenu}
           aria-hidden="true"
         />

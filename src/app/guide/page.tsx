@@ -5,7 +5,7 @@ import FadeIn from "@/components/FadeIn";
 export const metadata: Metadata = {
   title: "Editing Guide",
   description:
-    "A complete guide on how to edit and customize the Elisabeth Jane website — update products, Stripe links, blog posts, and more.",
+    "A complete guide on how to edit and customize the Elisabeth Jane website — update products, Stripe links, and more.",
 };
 
 function CodeBlock({ children }: { children: string }) {
@@ -64,19 +64,17 @@ const SECTIONS: GuideSection[] = [
 │   ├── globals.css           # Theme colors and base styles
 │   ├── page.tsx              # Home page
 │   ├── about/page.tsx        # About page
-│   ├── blog/page.tsx         # Blog listing page
-│   ├── blog/[slug]/page.tsx  # Individual blog post page
 │   └── guide/page.tsx        # This guide page
 ├── components/
 │   ├── Header.tsx            # Navigation bar
 │   ├── Footer.tsx            # Site footer
 │   ├── Button.tsx            # Reusable button component
 │   ├── FadeIn.tsx            # Scroll animation wrapper
-│   ├── ProductCard.tsx       # Product card component
+│   ├── ProductCard.tsx       # Product card component (with image gallery)
 │   ├── ScrollToTop.tsx       # Scroll-to-top button
 │   └── SectionHeader.tsx     # Reusable section header
 └── lib/
-    ├── constants.ts          # Products, blog posts, nav links, site info
+    ├── constants.ts          # Products, nav links, site info
     ├── types.ts              # TypeScript type definitions
     └── utils.ts              # Utility functions`}</CodeBlock>
     ),
@@ -90,22 +88,21 @@ const SECTIONS: GuideSection[] = [
           <InlineCode>src/lib/constants.ts</InlineCode>
         </p>
         <p className="mb-4 text-base leading-loose text-text-light">
-          Find the <InlineCode>PRODUCTS</InlineCode> and{" "}
-          <InlineCode>EXTRAS</InlineCode> arrays and replace the{" "}
+          Find the <InlineCode>PRODUCTS</InlineCode> array and replace the{" "}
           <InlineCode>stripeLink</InlineCode> values:
         </p>
         <CodeBlock>{`// src/lib/constants.ts
 
 export const PRODUCTS: readonly Product[] = [
   {
-    id: "classic-floral",
-    name: "Classic Floral Recipe Box",
-    description: "A timeless floral design...",
-    price: "$85.00",
+    id: "strawberry-large",
+    name: "Strawberry Hand-Painted Recipe Box: Large",
+    description: "The classic and original...",
+    price: "$30.00",
     stripeLink: "https://buy.stripe.com/YOUR_ACTUAL_LINK",  // ← Replace
-    tag: "Hand-Painted Floral",
+    tag: "Strawberry",
+    // ...
   },
-  // ... more products
 ];`}</CodeBlock>
         <Callout>
           <strong>How to get Stripe Payment Links:</strong> Log into your{" "}
@@ -121,17 +118,19 @@ export const PRODUCTS: readonly Product[] = [
     content: (
       <>
         <p className="mb-4 text-base leading-loose text-text-light">
-          Add a new object to the <InlineCode>PRODUCTS</InlineCode> or{" "}
-          <InlineCode>EXTRAS</InlineCode> array in{" "}
+          Add a new object to the <InlineCode>PRODUCTS</InlineCode> array in{" "}
           <InlineCode>src/lib/constants.ts</InlineCode>:
         </p>
         <CodeBlock>{`{
   id: "new-product-id",        // Unique ID (no spaces)
   name: "My New Recipe Box",   // Display name
-  description: "Description...",  // For main products only
+  description: "Description...",
   price: "$95.00",             // Display price
   stripeLink: "https://buy.stripe.com/...",
   tag: "Display Tag",          // Short label shown on placeholder
+  dimensions: '6.5" x 4.4" x 3.6"',  // Optional
+  details: ["Fits a 4x6 card", ...],  // Optional bullet list
+  images: ["/images/products/my-box-1.jpg", ...],  // Optional
 }`}</CodeBlock>
         <Callout>
           The price shown on the site is display-only. The actual charge
@@ -141,30 +140,28 @@ export const PRODUCTS: readonly Product[] = [
     ),
   },
   {
-    title: "3. Adding Blog Posts",
+    title: "3. Adding Product Images",
     content: (
       <>
         <p className="mb-4 text-base leading-loose text-text-light">
-          Blog posts live in the <InlineCode>BLOG_POSTS</InlineCode> array in{" "}
-          <InlineCode>src/lib/constants.ts</InlineCode>. Add a new entry:
+          Product images are stored in{" "}
+          <InlineCode>public/images/products/</InlineCode> and referenced in
+          the <InlineCode>images</InlineCode> array on each product:
         </p>
-        <CodeBlock>{`{
-  slug: "my-new-post",                 // URL path (no spaces)
-  title: "My New Blog Post Title",     // Full title
-  excerpt: "A short summary...",        // Shown on listing page
-  date: "2026-03-01",                  // YYYY-MM-DD format
-  category: "Behind the Scenes",       // Category label
-  content: \`Your content here.
-
-## Use Headings Like This
-
-Separate paragraphs with blank lines.
-Use *asterisks* for italic text.\`,
-}`}</CodeBlock>
+        <ol className="list-inside list-decimal space-y-3 text-base leading-loose text-text-light">
+          <li>
+            Place images in <InlineCode>public/images/products/</InlineCode>
+          </li>
+          <li>
+            Add paths to the <InlineCode>images</InlineCode> array in{" "}
+            <InlineCode>constants.ts</InlineCode> (e.g.{" "}
+            <InlineCode>{`"/images/products/my-box-1.jpg"`}</InlineCode>)
+          </li>
+        </ol>
         <Callout>
-          Reading time is calculated automatically. New posts appear on
-          both the blog listing and the home page &ldquo;From the Blog&rdquo;
-          section.
+          Use square images (1:1) at least 800x800px. The product card shows
+          an image gallery with dot navigation when multiple images are
+          provided. Products without images show a gradient placeholder.
         </Callout>
       </>
     ),
@@ -206,47 +203,22 @@ Use *asterisks* for italic text.\`,
           <InlineCode>src/lib/constants.ts</InlineCode>:
         </p>
         <CodeBlock>{`export const NAV_LINKS: readonly NavLink[] = [
+  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Shop", href: "/#shop" },
-  { label: "Blog", href: "/blog" },
-  { label: "Guide", href: "/guide" },
+  { label: "Stockists", href: "/#stockists" },
+  { label: "Shipping & Policies", href: "/#policies" },
+  { label: "Contact", href: "/#contact" },
 ];`}</CodeBlock>
         <p className="mt-4 text-base leading-loose text-text-light">
-          Use <InlineCode>/page-name</InlineCode> for pages or{" "}
+          Use <InlineCode>/page-name</InlineCode> for separate pages or{" "}
           <InlineCode>/#section-id</InlineCode> for on-page scroll targets.
         </p>
       </>
     ),
   },
   {
-    title: "6. Adding Product Images",
-    content: (
-      <>
-        <p className="mb-4 text-base leading-loose text-text-light">
-          Currently, products show placeholder gradients. To add real images:
-        </p>
-        <ol className="list-inside list-decimal space-y-3 text-base leading-loose text-text-light">
-          <li>
-            Place images in <InlineCode>public/products/</InlineCode>
-          </li>
-          <li>
-            Add an <InlineCode>image</InlineCode> field to each product in{" "}
-            <InlineCode>constants.ts</InlineCode>
-          </li>
-          <li>
-            Update <InlineCode>ProductCard.tsx</InlineCode> to use{" "}
-            <InlineCode>next/image</InlineCode>
-          </li>
-        </ol>
-        <Callout>
-          Use square images (1:1) at least 800x800px. WebP format is
-          recommended. Optimize with tools like Squoosh before uploading.
-        </Callout>
-      </>
-    ),
-  },
-  {
-    title: "7. Building & Deploying",
+    title: "6. Building & Deploying",
     content: (
       <>
         <p className="mb-4 text-base leading-loose text-text-light">
@@ -271,8 +243,8 @@ npm run build     # Build static export to out/`}</CodeBlock>
 
 const QUICK_REF: [string, string][] = [
   ["Update Stripe links", "src/lib/constants.ts → stripeLink"],
-  ["Add/edit products", "src/lib/constants.ts → PRODUCTS / EXTRAS"],
-  ["Add a blog post", "src/lib/constants.ts → BLOG_POSTS"],
+  ["Add/edit products", "src/lib/constants.ts → PRODUCTS"],
+  ["Add product images", "public/images/products/ + constants.ts → images"],
   ["Change colors", "src/app/globals.css → @theme"],
   ["Change fonts", "src/app/layout.tsx"],
   ["Edit nav links", "src/lib/constants.ts → NAV_LINKS"],
@@ -294,8 +266,8 @@ export default function GuidePage() {
             How to Edit This Site
           </h1>
           <p className="mx-auto max-w-[500px] text-lg leading-loose text-text-light">
-            A complete guide to updating products, Stripe links, blog posts,
-            styles, and more.
+            A complete guide to updating products, Stripe links, styles, and
+            more.
           </p>
         </div>
       </header>
