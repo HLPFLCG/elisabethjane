@@ -59,10 +59,10 @@ export const PRODUCTS: readonly Product[] = [
       "Free local pick up",
     ],
     images: [
+      "/images/products/smallbox4.jpeg",
       "/images/products/smallbox1.jpeg",
       "/images/products/smallbox2.jpeg",
       "/images/products/smallbox3.jpeg",
-      "/images/products/smallbox4.jpeg",
     ],
   },
 ];
