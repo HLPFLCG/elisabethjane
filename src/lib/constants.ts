@@ -38,10 +38,9 @@ export const PRODUCTS: readonly Product[] = [
       "Free local pick up",
     ],
     images: [
-      "/images/products/large-box-1.jpg",
-      "/images/products/large-box-2.jpg",
-      "/images/products/large-box-3.jpg",
-      "/images/products/large-box-4.jpg",
+      "/images/products/largebox1.jpeg",
+      "/images/products/largebox2.jpeg",
+      "/images/products/largebox3.jpeg",
     ],
   },
   {
@@ -60,10 +59,10 @@ export const PRODUCTS: readonly Product[] = [
       "Free local pick up",
     ],
     images: [
-      "/images/products/small-box-1.jpg",
-      "/images/products/small-box-2.jpg",
-      "/images/products/small-box-3.jpg",
-      "/images/products/small-box-4.jpg",
+      "/images/products/smallbox1.jpeg",
+      "/images/products/smallbox2.jpeg",
+      "/images/products/smallbox3.jpeg",
+      "/images/products/smallbox4.jpeg",
     ],
   },
 ];

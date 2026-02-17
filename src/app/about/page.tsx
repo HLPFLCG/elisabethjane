@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import SectionHeader from "@/components/SectionHeader";
 import FadeIn from "@/components/FadeIn";
 import Button from "@/components/Button";
@@ -51,6 +52,18 @@ export default function AboutPage() {
       <section className="bg-cream px-6 py-24 lg:py-28">
         <div className="mx-auto max-w-[720px]">
           <SectionHeader label="The Artist" title="Hi, I'm Emma!" />
+          <FadeIn className="mb-10 flex justify-center">
+            <div className="relative aspect-[3/4] w-full max-w-[320px] overflow-hidden">
+              <Image
+                src="/images/products/aboutmepic.jpeg"
+                alt="Emma Laureen, the artist behind Elisabeth Jane"
+                fill
+                className="object-cover"
+                sizes="320px"
+                priority
+              />
+            </div>
+          </FadeIn>
           <FadeIn className="space-y-6 text-base leading-loose text-text-light">
             <p>
               I am the artist and designer behind this work, and I&rsquo;m truly
