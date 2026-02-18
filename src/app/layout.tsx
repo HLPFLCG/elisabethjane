@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
-import { SITE_NAME, SITE_DESCRIPTION } from "@/lib/constants";
+import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -22,12 +22,14 @@ export const metadata: Metadata = {
     "gift",
     "Elisabeth Jane",
   ],
+  metadataBase: new URL(SITE_URL),
   openGraph: {
     title: `${SITE_NAME} | Hand-Painted Recipe Boxes`,
     description: SITE_DESCRIPTION,
     type: "website",
     locale: "en_US",
     siteName: SITE_NAME,
+    url: SITE_URL,
   },
   twitter: {
     card: "summary_large_image",
