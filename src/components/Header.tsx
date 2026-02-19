@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
   const pathname = usePathname();
 
   useEffect(() => {
@@ -16,6 +17,42 @@ export default function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Scroll spy: track which section is in view on the home page
+  useEffect(() => {
+    if (pathname !== "/") return;
+
+    const sectionIds = NAV_LINKS
+      .filter((link) => link.href.startsWith("/#"))
+      .map((link) => link.href.slice(2));
+
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        }
+      },
+      { rootMargin: "-50% 0px -50% 0px" }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    const onScroll = () => {
+      if (window.scrollY < 200) setActiveSection("");
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -27,7 +64,12 @@ export default function Header() {
   const closeMenu = useCallback(() => setMenuOpen(false), []);
 
   const isActive = (href: string): boolean => {
-    if (href === "/") return pathname === "/";
+    if (pathname === "/") {
+      if (href === "/") return !activeSection;
+      if (href.startsWith("/#")) return activeSection === href.slice(2);
+      return false;
+    }
+    if (href === "/") return false;
     if (href.startsWith("/#")) return false;
     return pathname.startsWith(href);
   };

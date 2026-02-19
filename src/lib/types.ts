@@ -3,7 +3,7 @@ export interface Product {
   name: string;
   description?: string;
   price: string;
-  venmoLink: string;
+  checkoutLink: string;
   tag: string;
   dimensions?: string;
   details?: string[];
