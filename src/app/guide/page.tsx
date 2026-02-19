@@ -81,20 +81,18 @@ const SECTIONS: GuideSection[] = [
     ),
   },
   {
-    title: "1. Updating the Venmo Payment Link",
+    title: "1. Updating Stripe Checkout Links",
     content: (
       <>
         <p className="mb-4 text-base leading-loose text-text-light">
-          All product data and payment links live in one file:{" "}
+          All product data and checkout links live in one file:{" "}
           <InlineCode>src/lib/constants.ts</InlineCode>
         </p>
         <p className="mb-4 text-base leading-loose text-text-light">
-          The Venmo URL is stored as a constant and on each product via the{" "}
-          <InlineCode>venmoLink</InlineCode> field:
+          Each product has a <InlineCode>checkoutLink</InlineCode> field that
+          points to a Stripe Checkout URL:
         </p>
         <CodeBlock>{`// src/lib/constants.ts
-
-export const VENMO_URL = "https://venmo.com/u/Emma-Cole-724";
 
 export const PRODUCTS: readonly Product[] = [
   {
@@ -102,16 +100,16 @@ export const PRODUCTS: readonly Product[] = [
     name: "Strawberry Hand-Painted Recipe Box: Large",
     description: "The classic and original...",
     price: "$30.00",
-    venmoLink: "https://venmo.com/u/Emma-Cole-724",  // ← Replace if needed
+    checkoutLink: "https://buy.stripe.com/...",  // ← Replace with your Stripe link
     tag: "Strawberry",
     // ...
   },
 ];`}</CodeBlock>
         <Callout>
-          <strong>Changing the Venmo link:</strong> Update the{" "}
-          <InlineCode>VENMO_URL</InlineCode> constant and the{" "}
-          <InlineCode>venmoLink</InlineCode> on each product in{" "}
-          <InlineCode>src/lib/constants.ts</InlineCode>.
+          <strong>Changing a checkout link:</strong> Update the{" "}
+          <InlineCode>checkoutLink</InlineCode> on each product in{" "}
+          <InlineCode>src/lib/constants.ts</InlineCode>. You can generate new
+          payment links from your Stripe dashboard.
         </Callout>
       </>
     ),
@@ -129,7 +127,7 @@ export const PRODUCTS: readonly Product[] = [
   name: "My New Recipe Box",   // Display name
   description: "Description...",
   price: "$95.00",             // Display price
-  venmoLink: "https://venmo.com/u/Emma-Cole-724",
+  checkoutLink: "https://buy.stripe.com/...",
   tag: "Display Tag",          // Short label shown on placeholder
   dimensions: '6.5" x 4.4" x 3.6"',  // Optional
   details: ["Fits a 4x6 card", ...],  // Optional bullet list
@@ -137,7 +135,7 @@ export const PRODUCTS: readonly Product[] = [
 }`}</CodeBlock>
         <Callout>
           The price shown on the site is display-only. The &ldquo;Purchase&rdquo;
-          button links to Venmo for payment.
+          button links to Stripe Checkout for payment.
         </Callout>
       </>
     ),
@@ -245,7 +243,7 @@ npm run pages:build  # Build for Cloudflare Pages`}</CodeBlock>
 ];
 
 const QUICK_REF: [string, string][] = [
-  ["Update Venmo link", "src/lib/constants.ts → venmoLink / VENMO_URL"],
+  ["Update checkout link", "src/lib/constants.ts → checkoutLink"],
   ["Add/edit products", "src/lib/constants.ts → PRODUCTS"],
   ["Add product images", "public/images/products/ + constants.ts → images"],
   ["Change colors", "src/app/globals.css → @theme"],

@@ -16,7 +16,6 @@ export const NAV_LINKS: readonly NavLink[] = [
   { label: "Contact", href: "/#contact" },
 ];
 
-export const VENMO_URL = "https://venmo.com/u/Emma-Cole-724";
 
 export const PRODUCTS: readonly Product[] = [
   {
@@ -25,7 +24,7 @@ export const PRODUCTS: readonly Product[] = [
     description:
       "The classic and original Elisabeth Jane recipe box. A vintage wooden box hand-painted with strawberries that is perfect for gathering loved ones around the table.",
     price: "$30.00",
-    venmoLink: "https://venmo.com/u/Emma-Cole-724",
+    checkoutLink: "https://buy.stripe.com/9B614n7Wj7LE0grf3v9Zm00",
     tag: "Strawberry",
     dimensions:
       '6.5" x 4.4" x 3.6" (16.5cm x 11.1cm x 9.1cm)',
@@ -49,7 +48,7 @@ export const PRODUCTS: readonly Product[] = [
     description:
       "The classic and original Elisabeth Jane recipe box in a smaller size. This is for those who have smaller recipes to keep. These are limited in stock and will discontinue after they sell out.",
     price: "$20.00",
-    venmoLink: "https://venmo.com/u/Emma-Cole-724",
+    checkoutLink: "https://buy.stripe.com/cNi9ATa4rfe6gfpcVn9Zm01",
     tag: "Strawberry",
     dimensions: '5.75" x 3.75" x 3.75" (14.6cm x 9.5cm x 9.5cm)',
     details: [
