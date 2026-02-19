@@ -48,7 +48,6 @@ export default function Header() {
 
   return (
     <nav
-      role="navigation"
       aria-label="Main navigation"
       className={cn(
         "fixed top-0 right-0 left-0 z-50 transition-all duration-300",

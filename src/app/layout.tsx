@@ -4,7 +4,8 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/constants";
 import "./globals.css";
-export const runtime = 'edge';
+
+export const runtime = "edge";
 
 export const metadata: Metadata = {
   title: {

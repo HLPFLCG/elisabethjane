@@ -45,8 +45,9 @@ const SECTIONS: GuideSection[] = [
         <p className="mb-4 text-base leading-loose text-text-light">
           This website is built with <strong>Next.js</strong> (App Router),{" "}
           <strong>TypeScript</strong>, and <strong>Tailwind CSS</strong>. It
-          exports as a fully static site and is deployed via{" "}
-          <strong>Cloudflare Pages</strong> with zero server costs.
+          runs on the edge via the{" "}
+          <strong>@cloudflare/next-on-pages</strong> adapter and is deployed on{" "}
+          <strong>Cloudflare Pages</strong>.
         </p>
         <p className="text-base leading-loose text-text-light">
           All data lives in TypeScript files &mdash; no database, no CMS. Edit
@@ -231,13 +232,13 @@ export const PRODUCTS: readonly Product[] = [
         <p className="mb-4 text-base leading-loose text-text-light">
           Cloudflare build settings:
         </p>
-        <CodeBlock>{`Build command:     npm run build
-Output directory:  out`}</CodeBlock>
+        <CodeBlock>{`Build command:     npx @cloudflare/next-on-pages@1
+Output directory:  .vercel/output/static`}</CodeBlock>
         <p className="my-4 text-base leading-loose text-text-light">
           For local development:
         </p>
-        <CodeBlock>{`npm run dev       # Start dev server at localhost:3000
-npm run build     # Build static export to out/`}</CodeBlock>
+        <CodeBlock>{`npm run dev          # Start dev server at localhost:3000
+npm run pages:build  # Build for Cloudflare Pages`}</CodeBlock>
       </>
     ),
   },
