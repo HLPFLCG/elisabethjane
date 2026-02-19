@@ -78,7 +78,7 @@ export default function HomePage() {
       </section>
 
       {/* About preview */}
-      <section className="bg-cream px-6 py-24 lg:py-28">
+      <section id="about" className="scroll-mt-20 bg-cream px-6 py-24 lg:py-28">
         <div className="mx-auto max-w-[1100px]">
           <SectionHeader label="Our Story" title="About Elisabeth Jane" />
           <div className="grid gap-14 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
