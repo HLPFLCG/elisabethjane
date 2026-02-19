@@ -32,13 +32,13 @@ const VALUES: readonly [string, string][] = [
 export default function AboutPage() {
   return (
     <>
-      {/* Hero — Unsplash: botanical garden */}
+      {/* Hero — Unsplash: wildflower meadow */}
       <header className="relative flex min-h-[60vh] items-center justify-center overflow-hidden bg-ivory px-6 pb-16 pt-32 text-center">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1457089328109-e5d9bd499191?w=1920&q=80&auto=format&fit=crop')",
+              "url('https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=1920&q=80&auto=format&fit=crop')",
           }}
           aria-hidden="true"
         />

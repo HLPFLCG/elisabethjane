@@ -14,7 +14,7 @@ export default function HomePage() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1457089328109-e5d9bd499191?w=1920&q=80&auto=format&fit=crop')",
+              "url('https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=1920&q=80&auto=format&fit=crop')",
           }}
           aria-hidden="true"
         />
@@ -59,7 +59,7 @@ export default function HomePage() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1446034295857-c899f4c4e1ed?w=1920&q=80&auto=format&fit=crop')",
+              "url('https://images.unsplash.com/photo-1495195134817-aeb325a55b65?w=1920&q=80&auto=format&fit=crop')",
           }}
           aria-hidden="true"
         />
@@ -131,7 +131,7 @@ export default function HomePage() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1483794344563-d27a8d18014e?w=1920&q=80&auto=format&fit=crop')",
+              "url('https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=1920&q=80&auto=format&fit=crop')",
           }}
           aria-hidden="true"
         />
