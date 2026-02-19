@@ -9,7 +9,7 @@ export const INSTAGRAM_URL = "https://www.instagram.com/elisabeth.jane.c";
 
 export const NAV_LINKS: readonly NavLink[] = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  { label: "About", href: "/#about" },
   { label: "Shop", href: "/#shop" },
   { label: "Stockists", href: "/#stockists" },
   { label: "Shipping & Policies", href: "/#policies" },
