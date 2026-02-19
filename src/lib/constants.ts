@@ -54,7 +54,7 @@ export const PRODUCTS: readonly Product[] = [
     dimensions: '5.75" x 3.75" x 3.75" (14.6cm x 9.5cm x 9.5cm)',
     details: [
       "Fits a 3x5 card",
-      "Sealed with Polyurethane",
+      "Sealed with polyurethane",
       "Wrapped and shipped carefully in a small cardboard box",
       "Free local pick up",
     ],
