@@ -36,7 +36,7 @@ export const metadata: Metadata = {
       {
         url: "/images/social-preview.jpg",
         width: 1200,
-        height: 1200,
+        height: 630,
         alt: "Elisabeth Jane Brand — Hand-Painted Recipe Boxes",
       },
     ],
