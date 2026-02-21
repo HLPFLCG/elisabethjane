@@ -32,11 +32,20 @@ export const metadata: Metadata = {
     locale: "en_US",
     siteName: SITE_NAME,
     url: SITE_URL,
+    images: [
+      {
+        url: "/images/social-preview.jpg",
+        width: 1200,
+        height: 1200,
+        alt: "Elisabeth Jane Brand — Hand-Painted Recipe Boxes",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${SITE_NAME} | Hand-Painted Recipe Boxes`,
     description: SITE_DESCRIPTION,
+    images: ["/images/social-preview.jpg"],
   },
   robots: { index: true, follow: true },
 };
