@@ -13,8 +13,7 @@ export default function HomePage() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=1920&q=80&auto=format&fit=crop')",
+            backgroundImage: "url('/images/hero.png')",
           }}
           aria-hidden="true"
         />
