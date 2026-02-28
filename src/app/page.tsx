@@ -58,7 +58,7 @@ export default function HomePage() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1495195134817-aeb325a55b65?w=1920&q=80&auto=format&fit=crop')",
+              "url('https://unsplash.com/photos/a-pile-of-ripe-strawberries-with-a-single-white-flower-gA4DGA0nL5s')",
           }}
           aria-hidden="true"
         />
@@ -130,7 +130,7 @@ export default function HomePage() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=1920&q=80&auto=format&fit=crop')",
+              "url('https://unsplash.com/photos/a-close-up-of-strawberries-and-flowers-on-a-table-uSMGVzeRUX0",
           }}
           aria-hidden="true"
         />
@@ -168,6 +168,9 @@ export default function HomePage() {
             <div className="border border-border bg-warm-white p-10">
               <h3 className="font-heading text-xl font-medium text-green-dark">
                 Stoffer Home
+              </h3>
+              <h3 className="font-heading text-xl font-medium text-green-dark">
+                Spring Sweet
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-text-light">
                 Grand Rapids, Michigan
@@ -240,7 +243,7 @@ export default function HomePage() {
             <div className="mt-7">
               <a
                 href={INSTAGRAM_URL}
-                target="_blank"
+                target="https://www.instagram.com/elisabeth.jane.c/"
                 rel="noopener noreferrer"
                 className="text-xs uppercase tracking-[0.12em] text-green-muted hover:text-green-dark"
                 aria-label="Instagram"
