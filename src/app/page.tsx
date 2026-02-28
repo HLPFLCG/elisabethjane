@@ -57,8 +57,7 @@ export default function HomePage() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
           style={{
-            backgroundImage:
-              "url('https://unsplash.com/photos/a-pile-of-ripe-strawberries-with-a-single-white-flower-gA4DGA0nL5s')",
+            backgroundImage: "url('/images/new2.jpg')",
           }}
           aria-hidden="true"
         />
@@ -129,8 +128,7 @@ export default function HomePage() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage:
-              "url('https://unsplash.com/photos/a-close-up-of-strawberries-and-flowers-on-a-table-uSMGVzeRUX0",
+            backgroundImage: "url('/images/new1.jpg')",
           }}
           aria-hidden="true"
         />
