@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     images: [
       {
-        url: "/images/social-preview.jpg",
+        url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Elisabeth Jane Brand — Hand-Painted Recipe Boxes",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${SITE_NAME} | Hand-Painted Recipe Boxes`,
     description: SITE_DESCRIPTION,
-    images: ["/images/social-preview.jpg"],
+    images: ["/images/og-image.jpg"],
   },
   robots: { index: true, follow: true },
 };
