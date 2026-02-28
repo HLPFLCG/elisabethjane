@@ -167,9 +167,6 @@ export default function HomePage() {
               <h3 className="font-heading text-xl font-medium text-green-dark">
                 Stoffer Home
               </h3>
-              <h3 className="font-heading text-xl font-medium text-green-dark">
-                Spring Sweet
-              </h3>
               <p className="mt-2 text-sm leading-relaxed text-text-light">
                 Grand Rapids, Michigan
               </p>
