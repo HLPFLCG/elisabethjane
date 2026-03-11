@@ -28,21 +28,21 @@ export default function HomePage() {
           <p className="mx-auto mb-10 max-w-[560px] text-lg leading-loose text-text-light">
             Hand-painted recipe boxes made to be used, loved, and passed down.
           </p>
-          <Button href="#shop">Shop Recipe Boxes</Button>
+          <Button href="#shop">Shop the Collection</Button>
         </div>
       </header>
 
       {/* Shop — immediately after hero */}
       <section id="shop" className="scroll-mt-20 bg-warm-white px-6 py-24 lg:py-28">
-        <div className="mx-auto max-w-[1100px]">
-          <SectionHeader label="The Collection" title="Shop Recipe Boxes" />
+        <div className="mx-auto max-w-[1280px]">
+          <SectionHeader label="The Collection" title="Shop" />
 
           <FadeIn className="mx-auto -mt-4 mb-14 max-w-[540px] text-center text-sm italic leading-relaxed text-text-light">
             Each box is hand-painted and will have slight variations &mdash;
             this is what makes it uniquely yours.
           </FadeIn>
 
-          <div className="mx-auto grid max-w-[960px] gap-10 lg:grid-cols-2">
+          <div className="mx-auto grid max-w-[1200px] gap-8 lg:grid-cols-3">
             {PRODUCTS.map((product, i) => (
               <FadeIn key={product.id} delay={i * 120}>
                 <ProductCard {...product} />

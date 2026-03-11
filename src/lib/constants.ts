@@ -19,6 +19,26 @@ export const NAV_LINKS: readonly NavLink[] = [
 
 export const PRODUCTS: readonly Product[] = [
   {
+    id: "recipe-cards",
+    name: "Hand-Illustrated Strawberry Garden Recipe Cards \u2013 Set of 10",
+    description:
+      "Original strawberry garden vine illustration on heavy-weight, archival-quality cardstock. Each card features dedicated sections for Prep Time, Cook Time, Ingredients, and Instructions.",
+    price: "$10.00",
+    checkoutLink: "https://buy.stripe.com/aFacN56Sf3vobZ97B39Zm02",
+    tag: "Recipe Cards",
+    dimensions: '4" x 6" (standard size)',
+    details: [
+      "Set includes 10 hand-illustrated recipe cards",
+      "Heavy-weight, archival-quality cardstock",
+      "Original strawberry garden vine design",
+      "Sections for Prep Time, Cook Time, Ingredients & Instructions",
+      "Designed to fit the large Elisabeth Jane recipe box",
+    ],
+    images: [
+      "/images/products/recipecards1.jpeg",
+    ],
+  },
+  {
     id: "strawberry-large",
     name: "Strawberry Hand-Painted Recipe Box (Large)",
     description:
