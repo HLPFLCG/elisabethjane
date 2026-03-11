@@ -92,6 +92,25 @@ a, button {
   transition: all 0.3s ease;
 }
 
+/* Offscreen sections: skip rendering until near viewport */
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+
+/* Prevent 300ms tap delay on touch devices */
+a, button {
+  touch-action: manipulation;
+}
+
+/* Safe area padding for notched devices / iPads */
+@supports (padding: env(safe-area-inset-bottom)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
