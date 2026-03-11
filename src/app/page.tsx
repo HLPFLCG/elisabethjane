@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import SectionHeader from "@/components/SectionHeader";
 import ProductCard from "@/components/ProductCard";
 import FadeIn from "@/components/FadeIn";
@@ -10,11 +11,13 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <header className="relative flex min-h-svh items-center justify-center overflow-hidden bg-ivory px-6 pb-20 pt-32 text-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/images/hero.png')",
-          }}
+        <Image
+          src="/images/hero.webp"
+          alt=""
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-ivory/80" aria-hidden="true" />
@@ -42,7 +45,7 @@ export default function HomePage() {
             this is what makes it uniquely yours.
           </FadeIn>
 
-          <div className="mx-auto grid max-w-[1200px] gap-8 lg:grid-cols-3">
+          <div className="mx-auto grid max-w-[1200px] gap-8 md:grid-cols-2 lg:grid-cols-3">
             {PRODUCTS.map((product, i) => (
               <FadeIn key={product.id} delay={i * 120}>
                 <ProductCard {...product} />
@@ -54,11 +57,12 @@ export default function HomePage() {
 
       {/* Quote */}
       <section className="relative overflow-hidden bg-green-dark px-6 py-20 lg:py-24">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-          style={{
-            backgroundImage: "url('/images/new2.jpg')",
-          }}
+        <Image
+          src="/images/new2.webp"
+          alt=""
+          fill
+          className="object-cover opacity-20"
+          sizes="100vw"
           aria-hidden="true"
         />
         <FadeIn className="relative z-10 mx-auto max-w-[800px]">
@@ -125,14 +129,14 @@ export default function HomePage() {
 
       {/* Process */}
       <section className="relative overflow-hidden bg-ivory px-6 py-24 lg:py-28">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/images/new1.jpg')",
-          }}
+        <Image
+          src="/images/new1.webp"
+          alt=""
+          fill
+          className="object-cover opacity-10"
+          sizes="100vw"
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-ivory/90" aria-hidden="true" />
         <div className="relative z-10 mx-auto max-w-[1100px]">
           <SectionHeader label="How It's Made" title="The Process" />
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">

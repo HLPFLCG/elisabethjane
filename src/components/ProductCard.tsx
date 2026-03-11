@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import type { Product } from "@/lib/types";
 import { cn } from "@/lib/utils";
@@ -40,6 +40,10 @@ export default function ProductCard({
     if (!images) return;
     setLightboxIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   }, [images]);
+
+  // Touch swipe state for lightbox
+  const touchStartX = useRef(0);
+  const touchDeltaX = useRef(0);
 
   useEffect(() => {
     if (!lightboxOpen) return;
@@ -92,7 +96,7 @@ export default function ProductCard({
               alt={`${name} - photo ${activeImage + 1}`}
               fill
               className="cursor-pointer object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-              sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 450px"
+              sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 400px"
               onClick={() => openLightbox(activeImage)}
             />
             {images.length > 1 && (
@@ -221,43 +225,57 @@ export default function ProductCard({
         </p>
       </div>
 
-      {/* Lightbox */}
+      {/* Lightbox — fullscreen on all devices */}
       {lightboxOpen && images && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/90 backdrop-blur-sm"
           onClick={closeLightbox}
+          onTouchStart={(e) => {
+            touchStartX.current = e.touches[0].clientX;
+            touchDeltaX.current = 0;
+          }}
+          onTouchMove={(e) => {
+            touchDeltaX.current = e.touches[0].clientX - touchStartX.current;
+          }}
+          onTouchEnd={() => {
+            if (Math.abs(touchDeltaX.current) > 50) {
+              if (touchDeltaX.current > 0) lightboxPrev();
+              else lightboxNext();
+            }
+            touchDeltaX.current = 0;
+          }}
         >
           {/* Close button */}
           <button
             onClick={closeLightbox}
             aria-label="Close lightbox"
-            className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-cream/90 text-green-dark shadow-md transition-colors hover:bg-cream"
+            className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-cream/90 text-green-dark shadow-md transition-colors hover:bg-cream sm:right-5 sm:top-5"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5">
               <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
             </svg>
           </button>
 
-          {/* Image */}
+          {/* Image — fills available space */}
           <div
-            className="relative mx-4 max-h-[85vh] max-w-[90vw] sm:max-w-[80vw]"
+            className="relative flex h-[calc(100dvh-80px)] w-full items-center justify-center px-2 sm:px-12"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
               src={images[lightboxIndex]}
               alt={`${name} - photo ${lightboxIndex + 1}`}
-              width={1200}
-              height={1200}
-              className="max-h-[85vh] w-auto rounded object-contain"
-              sizes="90vw"
+              width={1600}
+              height={1600}
+              className="max-h-full max-w-full object-contain"
+              sizes="100vw"
               priority
             />
-
-            {/* Counter */}
-            <p className="mt-3 text-center text-sm text-cream/70">
-              {lightboxIndex + 1} / {images.length}
-            </p>
           </div>
+
+          {/* Counter */}
+          <p className="shrink-0 pb-4 pt-2 text-center text-sm text-cream/70">
+            {lightboxIndex + 1} / {images.length}
+          </p>
 
           {/* Prev / Next arrows */}
           {images.length > 1 && (
@@ -265,18 +283,18 @@ export default function ProductCard({
               <button
                 onClick={(e) => { e.stopPropagation(); lightboxPrev(); }}
                 aria-label="Previous photo"
-                className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-cream/80 text-green-dark shadow-md transition-colors hover:bg-cream sm:left-6"
+                className="absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-cream/80 text-green-dark shadow-md transition-colors hover:bg-cream sm:left-4 md:h-12 md:w-12"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5 md:h-6 md:w-6">
                   <path fillRule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clipRule="evenodd" />
                 </svg>
               </button>
               <button
                 onClick={(e) => { e.stopPropagation(); lightboxNext(); }}
                 aria-label="Next photo"
-                className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-cream/80 text-green-dark shadow-md transition-colors hover:bg-cream sm:right-6"
+                className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-cream/80 text-green-dark shadow-md transition-colors hover:bg-cream sm:right-4 md:h-12 md:w-12"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5 md:h-6 md:w-6">
                   <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
                 </svg>
               </button>
