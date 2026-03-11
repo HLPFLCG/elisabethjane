@@ -36,6 +36,7 @@ export const PRODUCTS: readonly Product[] = [
     ],
     images: [
       "/images/products/FullSizeRender_VSCO.webp",
+      "/images/products/back-of-card.webp",
       "/images/products/IMG_3302.webp",
       "/images/products/IMG_3775_VSCO.webp",
       "/images/products/IMG_3771_VSCO.webp",
