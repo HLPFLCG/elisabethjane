@@ -225,10 +225,10 @@ export default function ProductCard({
         </p>
       </div>
 
-      {/* Lightbox — fullscreen on all devices */}
+      {/* Lightbox — true fullscreen on all devices */}
       {lightboxOpen && images && (
         <div
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/90 backdrop-blur-sm"
+          className="fixed inset-0 z-50 bg-black"
           onClick={closeLightbox}
           onTouchStart={(e) => {
             touchStartX.current = e.touches[0].clientX;
@@ -249,31 +249,30 @@ export default function ProductCard({
           <button
             onClick={closeLightbox}
             aria-label="Close lightbox"
-            className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-cream/90 text-green-dark shadow-md transition-colors hover:bg-cream sm:right-5 sm:top-5"
+            className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white shadow-md transition-colors hover:bg-white/40 sm:right-5 sm:top-5"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5">
               <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
             </svg>
           </button>
 
-          {/* Image — fills available space */}
+          {/* Image — fills the entire screen */}
           <div
-            className="relative flex h-[calc(100dvh-80px)] w-full items-center justify-center px-2 sm:px-12"
+            className="relative h-dvh w-full"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
               src={images[lightboxIndex]}
               alt={`${name} - photo ${lightboxIndex + 1}`}
-              width={1600}
-              height={1600}
-              className="max-h-full max-w-full object-contain"
+              fill
+              className="object-contain p-4 sm:p-10"
               sizes="100vw"
               priority
             />
           </div>
 
           {/* Counter */}
-          <p className="shrink-0 pb-4 pt-2 text-center text-sm text-cream/70">
+          <p className="absolute bottom-3 left-1/2 -translate-x-1/2 text-sm text-white/60 sm:bottom-5">
             {lightboxIndex + 1} / {images.length}
           </p>
 
@@ -283,7 +282,7 @@ export default function ProductCard({
               <button
                 onClick={(e) => { e.stopPropagation(); lightboxPrev(); }}
                 aria-label="Previous photo"
-                className="absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-cream/80 text-green-dark shadow-md transition-colors hover:bg-cream sm:left-4 md:h-12 md:w-12"
+                className="absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/20 text-white shadow-md transition-colors hover:bg-white/40 sm:left-4 md:h-12 md:w-12"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5 md:h-6 md:w-6">
                   <path fillRule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clipRule="evenodd" />
@@ -292,7 +291,7 @@ export default function ProductCard({
               <button
                 onClick={(e) => { e.stopPropagation(); lightboxNext(); }}
                 aria-label="Next photo"
-                className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-cream/80 text-green-dark shadow-md transition-colors hover:bg-cream sm:right-4 md:h-12 md:w-12"
+                className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/20 text-white shadow-md transition-colors hover:bg-white/40 sm:right-4 md:h-12 md:w-12"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5 md:h-6 md:w-6">
                   <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />

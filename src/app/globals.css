@@ -87,19 +87,9 @@ h1, h2, h3, h4 {
   top: 16px;
 }
 
-/* Smooth transitions for interactive elements */
+/* Smooth transitions and tap delay fix for interactive elements */
 a, button {
   transition: all 0.3s ease;
-}
-
-/* Offscreen sections: skip rendering until near viewport */
-section {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 600px;
-}
-
-/* Prevent 300ms tap delay on touch devices */
-a, button {
   touch-action: manipulation;
 }
 
