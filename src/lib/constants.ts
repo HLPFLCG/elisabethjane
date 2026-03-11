@@ -35,7 +35,12 @@ export const PRODUCTS: readonly Product[] = [
       "Designed to fit the large Elisabeth Jane recipe box",
     ],
     images: [
-      "/images/products/recipecards1.jpeg",
+      "/images/products/IMG_3302.jpeg",
+      "/images/products/IMG_3775_VSCO.jpeg",
+      "/images/products/IMG_3771_VSCO.jpeg",
+      "/images/products/IMG_3770_VSCO.jpeg",
+      "/images/products/IMG_3778_VSCO.jpeg",
+      "/images/products/FullSizeRender_VSCO.jpeg",
     ],
   },
   {
