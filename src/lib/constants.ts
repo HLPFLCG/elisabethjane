@@ -35,12 +35,12 @@ export const PRODUCTS: readonly Product[] = [
       "Designed to fit the large Elisabeth Jane recipe box",
     ],
     images: [
-      "/images/products/FullSizeRender_VSCO.jpeg",
-      "/images/products/IMG_3302.jpeg",
-      "/images/products/IMG_3775_VSCO.jpeg",
-      "/images/products/IMG_3771_VSCO.jpeg",
-      "/images/products/IMG_3770_VSCO.jpeg",
-      "/images/products/IMG_3778_VSCO.jpeg",
+      "/images/products/FullSizeRender_VSCO.webp",
+      "/images/products/IMG_3302.webp",
+      "/images/products/IMG_3775_VSCO.webp",
+      "/images/products/IMG_3771_VSCO.webp",
+      "/images/products/IMG_3770_VSCO.webp",
+      "/images/products/IMG_3778_VSCO.webp",
     ],
   },
   {
@@ -62,9 +62,9 @@ export const PRODUCTS: readonly Product[] = [
       "Free local pick up",
     ],
     images: [
-      "/images/products/largebox1.jpeg",
-      "/images/products/largebox2.jpeg",
-      "/images/products/largebox3.jpeg",
+      "/images/products/largebox1.webp",
+      "/images/products/largebox2.webp",
+      "/images/products/largebox3.webp",
     ],
   },
   {
@@ -83,10 +83,10 @@ export const PRODUCTS: readonly Product[] = [
       "Free local pick up",
     ],
     images: [
-      "/images/products/smallbox4.jpeg",
-      "/images/products/smallbox1.jpeg",
-      "/images/products/smallbox2.jpeg",
-      "/images/products/smallbox3.jpeg",
+      "/images/products/smallbox4.webp",
+      "/images/products/smallbox1.webp",
+      "/images/products/smallbox2.webp",
+      "/images/products/smallbox3.webp",
     ],
   },
 ];

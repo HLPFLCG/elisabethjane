@@ -64,7 +64,7 @@ export default function AboutPage() {
           <FadeIn className="mb-10 flex justify-center">
             <div className="relative aspect-[3/4] w-full max-w-[320px] overflow-hidden">
               <Image
-                src="/images/products/aboutmepic.jpeg"
+                src="/images/products/aboutmepic.webp"
                 alt="Emma Laureen, the artist behind Elisabeth Jane"
                 fill
                 className="object-cover"
